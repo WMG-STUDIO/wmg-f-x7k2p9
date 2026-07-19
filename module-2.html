@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 2 — Ton identité visuelle sans logiciel de design | Formation WMG-STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="assets/wmg-logo.png" alt="WMG-STUDIO">
+  <span class="module-label">Module 2 / 7</span>
+  <nav><a href="index.html">← Sommaire</a><a href="module-3.html">Module 3 →</a></nav>
+</header>
+
+<main class="page">
+
+  <div class="badge">Module 2 · 45 minutes · prérequis : le kit sur ton Bureau (Module 0.5)</div>
+  <h1>Ton identité visuelle, <span class="gold">sans logiciel de design</span></h1>
+  <p class="lead">À la fin de ce module, tu auras ta première slide de carrousel — à TES couleurs, avec TON nom — générée par ton ordinateur. Sans Canva, sans Photoshop, sans abonnement.</p>
+
+  <div class="bebe">
+    <div class="t">Expliqué comme à un bébé</div>
+    Un carrousel, c'est une image. Et une image, ton navigateur Chrome sait très bien en dessiner : il le fait chaque fois qu'il t'affiche un site web ! Notre astuce : on écrit la slide comme une mini page web (c'est déjà fait dans le kit), et on demande à Chrome de la <strong>prendre en photo</strong>. Résultat : une image parfaite, identique à chaque fois, gratuite.
+  </div>
+
+  <h2><span class="num">2.0</span>Installer les 2 outils gratuits</h2>
+  <h3>a) Google Chrome (le photographe)</h3>
+  <div class="step"><span class="n">1</span><div>Va sur <strong>google.com/chrome</strong> → <strong>« Télécharger Chrome »</strong> → ouvre le fichier téléchargé et suis l'installation (tout laisser par défaut).</div></div>
+  <div class="capture">page de téléchargement Chrome + installation Windows et Mac</div>
+  <h3>b) Visual Studio Code (ton stylo pour modifier les fichiers)</h3>
+  <div class="warn">
+    <div class="t">Jamais Word !</div>
+    Word ajoute des décorations invisibles qui cassent les fichiers de l'usine. Pour modifier nos fichiers, on utilise <strong>VS Code</strong> : gratuit, léger, fait pour ça.
+  </div>
+  <div class="step"><span class="n">1</span><div>Va sur <strong>code.visualstudio.com</strong> → <strong>« Download »</strong> → installe (tout par défaut).</div></div>
+  <div class="step"><span class="n">2</span><div>Ouvre VS Code → menu <strong>Fichier → Ouvrir le dossier…</strong> → choisis le dossier <code>kit-usine-wmg</code> sur ton Bureau → « Faire confiance aux auteurs » si demandé.</div></div>
+  <div class="capture">VS Code avec le dossier du kit ouvert dans la barre latérale</div>
+
+  <h2><span class="num">2.1</span>Choisir tes couleurs et tes polices (méthode simple)</h2>
+  <p>Il te faut exactement <strong>4 couleurs et 2 polices</strong>. Pas plus.</p>
+  <table>
+    <tr><th>Rôle</th><th>Exemple (charte WMG)</th><th>Comment choisir la tienne</th></tr>
+    <tr><td>Fond (clair, doux)</td><td><code>#F7F5F1</code> crème</td><td>Un blanc cassé — jamais blanc pur, jamais criard</td></tr>
+    <tr><td>Texte (sombre)</td><td><code>#2B2D33</code> encre</td><td>Un quasi-noir — jamais noir pur</td></tr>
+    <tr><td>Accent (ta couleur de marque)</td><td><code>#D4AF37</code> or</td><td>LA couleur de ton logo/site — celle qu'on retient</td></tr>
+    <tr><td>Action (boutons)</td><td><code>#2D5BFF</code> bleu</td><td>Une couleur vive qui contraste avec l'accent</td></tr>
+  </table>
+  <div class="bebe">
+    <div class="t">C'est quoi ce <code>#F7F5F1</code> ?</div>
+    C'est le « code postal » d'une couleur : 6 lettres/chiffres qui la désignent exactement. Pour trouver le code d'une couleur qui te plaît : cherche « color picker » sur Google, un nuancier s'ouvre, tu cliques, le code s'affiche. Si tu as un site web, prends les couleurs de ton site (pipette du color picker sur une capture d'écran).
+  </div>
+  <p>Pour les <strong>polices</strong> : le kit utilise <em>Roboto</em> (titres) et <em>Montserrat</em> (textes) — élégantes et gratuites. Garde-les pour commencer : tu pourras en changer plus tard, quand l'usine tournera.</p>
+
+  <h2><span class="num">2.2</span>Personnaliser le template : les 6 lignes à changer</h2>
+  <p>Dans VS Code, ouvre le fichier <code>template/slide-modele.html</code>. Tout en haut, tu verras un bloc encadré <code>/* === TES RÉGLAGES === */</code> avec <strong>6 lignes, et seulement 6</strong> :</p>
+  <div class="card">
+<pre style="font-family:monospace;font-size:15px;line-height:1.9">--couleur-fond:    #F7F5F1;   ← ton fond
+--couleur-texte:   #2B2D33;   ← ton texte
+--couleur-accent:  #D4AF37;   ← ta couleur de marque
+--couleur-action:  #2D5BFF;   ← tes boutons
+--mon-compte:      "@toncompte";      ← ton @ Instagram
+--mon-site:        "tonsite.com";     ← ton site (ou ton @ à nouveau)</pre>
+  </div>
+  <div class="step"><span class="n">1</span><div>Remplace chaque valeur par la tienne. <strong>Ne touche à rien d'autre</strong> — ni les points-virgules, ni les guillemets.</div></div>
+  <div class="step"><span class="n">2</span><div>Remplace le fichier <code>template/logo.png</code> par TON logo (même nom de fichier ! S'il s'appelle autrement, renomme-le <code>logo.png</code>). Pas de logo ? Laisse celui d'exemple, on y reviendra.</div></div>
+  <div class="step"><span class="n">3</span><div>Enregistre : <strong>Cmd+S</strong> (Mac) ou <strong>Ctrl+S</strong> (Windows).</div></div>
+  <div class="capture">VS Code : le bloc des 6 lignes avant/après modification, flèches sur chaque valeur</div>
+
+  <h2><span class="num">2.3</span>La photo : transformer le fichier en image</h2>
+  <p>C'est le moment magique. On demande à Chrome de photographier ta slide. Double-clique simplement sur le fichier <code>GENERER-Mac.command</code> (Mac) ou <code>GENERER-Windows.bat</code> (Windows) fourni dans le kit : il contient la commande toute prête.</p>
+  <div class="bebe">
+    <div class="t">Que fait ce fichier magique ?</div>
+    Il dit à Chrome, dans sa langue : « ouvre la slide, règle ton appareil photo sur 1080×1350 pixels (la taille exacte d'un post Instagram), prends la photo, range-la dans le dossier <code>rendu/</code> ». Tu peux l'ouvrir avec VS Code pour voir la commande — elle tient en une ligne.
+  </div>
+  <div class="warn">
+    <div class="t">Mac : « impossible d'ouvrir, développeur non identifié » ?</div>
+    Clic droit sur le fichier → <strong>Ouvrir</strong> → <strong>Ouvrir</strong> à nouveau dans la fenêtre. macOS protège contre les fichiers inconnus — là, c'est le tien, tout va bien. (À faire une seule fois.)
+  </div>
+  <div class="step"><span class="n">1</span><div>Double-clique sur le fichier GENERER de ton système.</div></div>
+  <div class="step"><span class="n">2</span><div>Une fenêtre noire s'ouvre 2 secondes puis se ferme : c'est normal, c'est la photo qui se prend.</div></div>
+  <div class="step"><span class="n">3</span><div>Ouvre le dossier <code>rendu/</code> : ta slide <code>slide-modele.png</code> est là, à tes couleurs. 🎉</div></div>
+  <div class="capture">le dossier rendu/ avec la première slide générée, ouverte en grand</div>
+
+  <h2><span class="num">2.4</span>La story d'annonce</h2>
+  <p>Même principe, format vertical (1080×1920). Le kit contient <code>template/story-modele.html</code> — tes 6 réglages s'y appliquent automatiquement (c'est le même bloc de réglages, partagé). Elle sera générée avec chaque carrousel et publiée juste après lui : c'est ton panneau « 📣 nouveau post ! » en haut des écrans de tes abonnés.</p>
+
+  <h2><span class="num">2.5</span>Les 6 règles d'un carrousel qui garde l'attention</h2>
+  <div class="card gold">
+    <ol>
+      <li><strong>1 carrousel = 1 seule idée.</strong> Si tu peux couper en deux, coupe : ça fait deux publications.</li>
+      <li><strong>Slide 1 = une promesse claire</strong> (« C'est quoi X ? ») — pas un mystère.</li>
+      <li><strong>Slide 2 = le rappel du post précédent</strong> (« La dernière fois, tu as vu que… ») : tes abonnés montent un escalier, marche par marche.</li>
+      <li><strong>Une seule analogie du quotidien</strong> par concept (la recette, la boîte, le restaurant…). Deux analogies = confusion.</li>
+      <li><strong>Avant-dernière slide = une question quiz</strong> (réponse en commentaire épinglé → ça fait commenter → Instagram adore).</li>
+      <li><strong>Dernière slide = récap en 3 points + « suis-moi »</strong>.</li>
+    </ol>
+  </div>
+
+  <div class="check">
+    <div class="t">Point de contrôle final du Module 2</div>
+    <ol>
+      <li>Le dossier <code>rendu/</code> contient <strong>ta slide PNG à tes couleurs</strong>, avec ton @ en haut à droite ✔</li>
+      <li>Tu sais expliquer ce que fait le fichier GENERER (« il demande à Chrome de prendre une photo ») ✔</li>
+      <li>Tu connais la règle n°1 des carrousels (1 carrousel = 1 idée) ✔</li>
+    </ol>
+    3/3 ? Ton identité visuelle existe. Au Module 3, le gros morceau : les clés officielles de Meta. Prends un café, tu vas l'avoir mérité. ☕
+  </div>
+
+  <h3>Glossaire du module — expliqué comme à un bébé</h3>
+  <div class="card">
+    <p><strong>HTML</strong> 📄 — la langue dans laquelle on décrit une page (ou une slide) : « mets ce titre ici, cette couleur là ». Tu n'as pas besoin de l'apprendre : le kit est déjà écrit, tu ne changes que 6 lignes.</p>
+    <p><strong>PNG</strong> 🖼️ — un format d'image de haute qualité. C'est le format de tes slides.</p>
+    <p><strong>Template / modèle</strong> 🍪 — l'emporte-pièce : la forme est fixe, tu changes juste la pâte (les textes, les couleurs).</p>
+    <p><strong>1080×1350</strong> 📐 — la taille officielle d'un post Instagram vertical, en pixels. Nos photos sortent exactement à cette taille : jamais floues, jamais rognées.</p>
+  </div>
+
+  <a class="next" href="module-3.html">Continuer → Module 3 : les clés de l'API Meta</a>
+  <div class="footer">Formation « Publie automatiquement sur Instagram : de zéro à l'usine cloud » — © WMG-STUDIO · wmg-studio.com</div>
+</main>
+</body>
+</html>

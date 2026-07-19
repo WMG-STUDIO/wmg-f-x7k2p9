@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 7 — Faire vivre ton usine | Formation WMG-STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="assets/wmg-logo.png" alt="WMG-STUDIO">
+  <span class="module-label">Module 7 / 7</span>
+  <nav><a href="index.html">← Sommaire</a><a href="index.html">Terminer 🎓</a></nav>
+</header>
+
+<main class="page">
+
+  <div class="badge">Module 7 · 30 minutes · le module que tu rouvriras souvent</div>
+  <h1>Faire vivre <span class="gold">ton usine</span></h1>
+  <p class="lead">L'usine tourne. Ce dernier module t'apprend le quotidien du patron : nourrir la machine en contenu, lire son journal, réparer les 5 pannes classiques — et la seule action manuelle qui restera à jamais la tienne.</p>
+
+  <h2><span class="num">7.1</span>Le journal de production : l'état de l'usine en un coup d'œil</h2>
+  <p>Dans ton dépôt <code>mon-usine</code>, le fichier <code>journal-production.md</code> est tenu à jour <strong>par les robots eux-mêmes</strong> : chaque ligne dit si un carrousel est « en file d'attente », « en validation » ou « publié le… ». C'est la première chose à regarder quand tu te demandes « où en est-on ? ».</p>
+  <div class="capture">le journal dans GitHub avec les 3 statuts surlignés</div>
+
+  <h2><span class="num">7.2</span>Nourrir l'usine : créer TES carrousels</h2>
+  <p>Jusqu'ici tu as publié l'exemple du kit. Voici la boucle de production de TON contenu — 30 minutes par carrousel au début, 15 avec l'habitude :</p>
+  <div class="step"><span class="n">1</span><div><strong>Duplique</strong> le dossier <code>publications/exemple-01</code> → renomme la copie <code>publications/02-mon-sujet</code> (toujours un numéro d'ordre + un mot).</div></div>
+  <div class="step"><span class="n">2</span><div>Dans VS Code, ouvre chaque <code>slide-XX.html</code> de la copie et <strong>change uniquement les textes</strong> (repérables entre les balises, exactement comme dans un formulaire). Garde la structure : promesse → rappel → l'idée pas à pas → quiz → récap.</div></div>
+  <div class="step"><span class="n">3</span><div>Mets à jour <code>legende.txt</code> (le texte du post + la ligne « Réponse au quiz : … »).</div></div>
+  <div class="step"><span class="n">4</span><div>Vérifie en local : double-clique GENERER → regarde les PNG (un texte trop long se voit tout de suite : il déborde — raccourcis-le).</div></div>
+  <div class="step"><span class="n">5</span><div>Téléverse le dossier dans <code>mon-usine/publications/</code> (Add file → Upload files, comme au Module 6). <strong>C'est tout :</strong> le dessinateur le prendra automatiquement à son tour dans la file.</div></div>
+  <div class="capture">la file publications/ avec 3 dossiers numérotés en attente</div>
+  <div class="bebe">
+    <div class="t">L'astuce du dimanche soir</div>
+    Prépare 2 ou 3 carrousels d'un coup, une fois par semaine. La file se remplit, l'usine pioche toute seule, et tu as toujours une semaine d'avance. Un assistant IA (ChatGPT, Claude…) peut t'aider à rédiger les textes des slides — donne-lui ta structure (promesse/rappel/idée/quiz/récap) et ton sujet, garde ton style.
+  </div>
+
+  <h2><span class="num">7.3</span>Les 5 pannes classiques et leurs remèdes</h2>
+  <table>
+    <tr><th>Symptôme</th><th>Cause probable</th><th>Remède</th></tr>
+    <tr><td>« Media ID is not available »</td><td>Meta digère encore les images</td><td>Ne rien faire : le script réessaie seul. Sinon relancer 2 min plus tard.</td></tr>
+    <tr><td>Run <strong>rouge</strong> dans Actions</td><td>Variable selon l'étape</td><td>Clique le run → la ligne rouge → lis le dernier message. 9 fois sur 10 : un secret mal nommé (vérifie l'orthographe EXACTE des 3 noms du Module 6.3).</td></tr>
+    <tr><td>« (#10) Application does not have permission »</td><td>Une des 6 cases du token manque</td><td>Business Manager → Utilisateurs système → Révoquer → regénérer le token avec les <strong>6</strong> cases (Module 3.6) → remplacer le secret <code>IG_ACCESS_TOKEN</code>.</td></tr>
+    <tr><td>Pas de notification sur le téléphone</td><td>Notifications app GitHub coupées</td><td>Réglages du téléphone → GitHub → Notifications → autoriser. Puis app GitHub → ⚙️ → Notifications → coche « Issues ».</td></tr>
+    <tr><td>L'image ne s'affiche pas dans le ticket</td><td>Dépôt <code>mes-images</code> passé en privé par erreur</td><td>mes-images → Settings → tout en bas → « Change visibility » → Public.</td></tr>
+  </table>
+  <div class="card blue">
+    <strong>Réflexe universel en cas de panne :</strong> rien de ce que tu peux cliquer ne casse définitivement quoi que ce soit. Le pire scénario possible = régénérer un token (5 minutes). Respire, lis le message d'erreur, cherche-le dans ce tableau.
+  </div>
+
+  <h2><span class="num">7.4</span>La seule action manuelle restante : épingler le quiz</h2>
+  <p>L'API de Meta sait poster le commentaire-réponse du quiz, mais pas l'<strong>épingler</strong> (le fixer en haut). 10 secondes après chaque publication :</p>
+  <div class="step"><span class="n">1</span><div>Ouvre ton post → le commentaire du quiz (posté par toi) → <strong>appui long</strong> dessus → <strong>Épingler</strong>. Fini.</div></div>
+  <div class="capture">appui long sur le commentaire + option Épingler</div>
+
+  <h2><span class="num">7.5</span>La sécurité de ton usine (à relire 2 fois par an)</h2>
+  <div class="warn">
+    <div class="t">Les 4 commandements des clés</div>
+    <ol>
+      <li>Le token et le fichier <code>trousseau.env</code> ne se partagent <strong>jamais</strong>, avec personne, sous aucun prétexte (même « le support Instagram » — c'est TOUJOURS une arnaque).</li>
+      <li>Les clés ne vont <strong>jamais</strong> dans le dépôt public <code>mes-images</code>.</li>
+      <li>Un doute, une fuite ? <strong>Révoquer → regénérer → remplacer le secret</strong> (Module 3.6 + 6.3). 10 minutes, aucun dégât.</li>
+      <li>La double authentification reste activée à vie sur Facebook ET GitHub.</li>
+    </ol>
+  </div>
+
+  <h2><span class="num">7.6</span>Et après ?</h2>
+  <div class="card">
+    <p>🚀 <strong>Accélérer le rythme</strong> : dans <code>robots/preparer.yml</code>, la ligne du réveil (<code>cron</code>) se change en 10 secondes — le guide du kit donne les réglages « tous les 2 jours » et « tous les jours ».</p>
+    <p>📊 <strong>Regarder tes statistiques</strong> : Instagram → Tableau de bord professionnel. Regarde surtout les <em>partages</em> et <em>enregistrements</em> : c'est eux qui font grandir un compte.</p>
+    <p>👥 <strong>Un deuxième compte ?</strong> Toute la mécanique se duplique : nouveau dépôt usine, nouvelles clés. Comptes multiples, même méthode.</p>
+    <p>🎓 <strong>Va plus loin avec WMG-STUDIO</strong> : notre offre « Studio clé en main » construit et pilote l'usine POUR toi — et notre application mobile arrive. Écris-nous : <strong>wmg-studio.com</strong>.</p>
+  </div>
+
+  <div class="check">
+    <div class="t">Point de contrôle FINAL de la formation 🎓</div>
+    <ol>
+      <li>Mon usine a publié <strong>au moins un carrousel que J'AI écrit</strong> (pas l'exemple) ✔</li>
+      <li>Je sais lire le <strong>journal de production</strong> et le tableau des <strong>5 pannes</strong> ✔</li>
+      <li>Ma file contient <strong>au moins 2 carrousels d'avance</strong> ✔</li>
+      <li>Mes clés sont en lieu sûr, la double authentification est active ✔</li>
+    </ol>
+    4/4 ? <strong>Félicitations, tu es diplômé de l'usine.</strong> 🏭🎓 Ton compte publie désormais avec la régularité d'une horloge — et la régularité, c'est exactement ce qu'Instagram récompense. À toi de jouer.
+  </div>
+
+  <a class="next" href="index.html">Retour au sommaire 🎓</a>
+  <div class="footer">Formation « Publie automatiquement sur Instagram : de zéro à l'usine cloud » — © WMG-STUDIO · wmg-studio.com</div>
+</main>
+</body>
+</html>

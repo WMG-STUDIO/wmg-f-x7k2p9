@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 3 — Les clés de l'API Meta | Formation WMG-STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="assets/wmg-logo.png" alt="WMG-STUDIO">
+  <span class="module-label">Module 3 / 7</span>
+  <nav><a href="index.html">← Sommaire</a><a href="module-4.html">Module 4 →</a></nav>
+</header>
+
+<main class="page">
+
+  <div class="badge">Module 3 · 60 minutes · le module le plus important — prends ton temps</div>
+  <h1>Les clés de l'API Meta : <span class="gold">la partie que tout le monde rate</span></h1>
+  <p class="lead">À la fin de ce module, tu auras un <strong>token permanent</strong> — la clé officielle qui permet à ton facteur de publier sur ton Instagram pour toujours, sans jamais te redemander ton mot de passe. C'est le trésor de toute l'usine. Suis les étapes DANS L'ORDRE : chacune débloque la suivante.</p>
+
+  <div class="bebe">
+    <div class="t">Expliqué comme à un bébé</div>
+    Meta (la maison-mère d'Instagram), c'est la <strong>mairie</strong>. Pour que ton facteur ait le droit de poster à ta place, il faut : déposer un dossier à la mairie (l'« app »), déclarer ton entreprise (le « portefeuille business »), embaucher officiellement ton facteur (l'« utilisateur système »), et lui remettre <strong>un badge magnétique qui n'expire jamais</strong> (le « token »). C'est de l'administratif — pas difficile, juste précis. On y va guichet par guichet.
+  </div>
+
+  <div class="warn">
+    <div class="t">⚠️ L'avertissement qui te sauvera une soirée</div>
+    Dans la console Meta, tu croiseras une page « Configuration de l'API avec la connexion <strong>Instagram</strong> » qui promet un bouton « Générer un token ». <strong>Ce bouton n'apparaît jamais</strong> (interface incomplète chez Meta, vérifié et re-vérifié). Des centaines de débutants s'y perdent des heures. Nous, on passe par la porte qui marche : le <strong>Business Manager</strong>. Si tu te retrouves sur cette page piège : ferme-la, reviens au guide.
+  </div>
+
+  <h2><span class="num">3.1</span>Guichet 1 — Créer ton app Meta (le dossier à la mairie)</h2>
+  <div class="step"><span class="n">1</span><div>Sur ton ordinateur, connecté à Facebook (compte du Module 1), va sur <strong>developers.facebook.com</strong> → bouton <strong>« Commencer »</strong> (ou « Get started ») → accepte les conditions développeur.</div></div>
+  <div class="capture">developers.facebook.com, bouton Commencer fléché</div>
+  <div class="step"><span class="n">2</span><div><strong>« Créer une app »</strong> → nom : <code>mon-usine-instagram</code> (ou ce que tu veux) → email : celui du projet → <strong>Suivant</strong>.</div></div>
+  <div class="step"><span class="n">3</span><div>Cas d'utilisation : coche <strong>« Gérer les messages et les contenus sur Instagram »</strong> → Suivant.</div></div>
+  <div class="capture">liste des cas d'utilisation avec la bonne case cochée</div>
+  <div class="step"><span class="n">4</span><div>Portefeuille business : <strong>« Je ne veux pas en associer pour le moment »</strong> (on le crée proprement au guichet 2) → Suivant → <strong>Créer l'app</strong>. Meta te redemande ton mot de passe Facebook : c'est normal (anti-usurpation).</div></div>
+  <div class="step"><span class="n">5</span><div>Tu arrives sur le <strong>tableau de bord de ton app</strong>. Va dans <strong>Autorisations et fonctionnalités</strong> (menu de gauche) et clique « Ajouter » sur ces 3 lignes si présentes : <code>instagram_business_basic</code>, <code>instagram_business_content_publish</code>, <code>instagram_business_manage_comments</code>.</div></div>
+  <div class="check">
+    <div class="t">Point de contrôle 3.1</div>
+    En haut de developers.facebook.com → « Mes applications », ton app apparaît dans la liste. ✔
+  </div>
+
+  <h2><span class="num">3.2</span>Guichet 2 — Le portefeuille business (déclarer ton entreprise)</h2>
+  <div class="step"><span class="n">1</span><div>Va sur <strong>business.facebook.com</strong> → <strong>« Créer un compte »</strong> (= créer le portefeuille) → nom de ton entreprise, ton nom, l'email du projet.</div></div>
+  <div class="capture">création du portefeuille business, formulaire rempli</div>
+  <h3>3.2 bis — La double authentification (à faire MAINTENANT, pas quand ça bloquera)</h3>
+  <p>Meta exige souvent la « double authentification » pour les opérations business. On la règle tout de suite :</p>
+  <div class="step"><span class="n">1</span><div>Sur facebook.com : ton avatar → <strong>Paramètres et confidentialité → Paramètres → Espace Comptes → Mot de passe et sécurité → Authentification à deux facteurs</strong>.</div></div>
+  <div class="step"><span class="n">2</span><div>Choisis <strong>« SMS »</strong> (le plus simple) → entre ton numéro → valide le code reçu.</div></div>
+  <div class="capture">chemin complet vers la 2FA + écran final « activée »</div>
+  <div class="bebe">
+    <div class="t">La double authentification ?</div>
+    C'est une deuxième serrure : mot de passe + code SMS. Même si on te vole ton mot de passe, sans ton téléphone, on n'entre pas. Meta la demande pour confier des clés d'automatisation — logique : ce sont les clés du camion.
+  </div>
+
+  <h2><span class="num">3.3</span>Guichet 3 — Revendiquer ton compte Instagram</h2>
+  <p>« Revendiquer » = déclarer officiellement : « ce compte Instagram appartient à mon entreprise ».</p>
+  <div class="step"><span class="n">1</span><div>Dans business.facebook.com → roue dentée <strong>⚙️ Paramètres</strong> (en bas à gauche) → section <strong>Comptes → Comptes Instagram</strong>.</div></div>
+  <div class="step"><span class="n">2</span><div><strong>« + Ajouter »</strong> → <strong>« Revendiquer le compte Instagram »</strong>.</div></div>
+  <div class="capture">Paramètres business → Comptes Instagram → bouton Ajouter fléché</div>
+  <div class="step"><span class="n">3</span><div>Une fenêtre de connexion Instagram s'ouvre → connecte-toi avec <strong>ton compte Instagram professionnel</strong> (Module 1). <em>Fenêtre invisible ? Ton navigateur bloque les pop-ups : clique l'icône à droite de la barre d'adresse → « Toujours autoriser »</em> → réessaie.</div></div>
+  <div class="step"><span class="n">4</span><div>Ton @ apparaît dans la liste avec un <strong>long numéro</strong> en dessous (17 chiffres commençant par 178…). <strong>📝 Note-le précieusement</strong> : c'est ton <strong>identifiant Instagram professionnel</strong>, on s'en servira aux Modules 5 et 6. C'est la 1re des 2 valeurs de ton trésor.</div></div>
+  <div class="capture">le compte revendiqué avec l'ID de 17 chiffres surligné</div>
+
+  <h2><span class="num">3.4</span>Guichet 4 — Embaucher ton facteur (l'utilisateur système)</h2>
+  <div class="step"><span class="n">1</span><div>Toujours dans ⚙️ Paramètres → section <strong>Utilisateur(ice)s → Utilisateurs système</strong> → <strong>« + Ajouter »</strong>. (Meta te fait accepter une politique anti-discrimination : lis, accepte.)</div></div>
+  <div class="step"><span class="n">2</span><div>Nom : <code>Facteur Usine</code> (⚠️ pas trop de tirets, Meta les refuse) — rôle : <strong>Employee</strong> → Créer.</div></div>
+  <div class="capture">création de l'utilisateur système, formulaire + résultat</div>
+  <div class="step"><span class="n">3</span><div>Ton facteur existe ! Maintenant on lui confie tes affaires : bouton <strong>« Affecter des éléments »</strong> → onglet <strong>Comptes Instagram</strong> → coche ton compte → active <strong>« Contenu »</strong> et <strong>« Activité de la communauté »</strong> → Affecter.</div></div>
+  <div class="step"><span class="n">4</span><div>Recommence : <strong>« Affecter des éléments »</strong> → onglet <strong>Applications</strong> → coche ton app <code>mon-usine-instagram</code> → active <strong>« Développer l'app »</strong> → Affecter.</div></div>
+  <div class="capture">les 2 affectations : compte Instagram puis application</div>
+
+  <h2><span class="num">3.5</span>Guichet 5 — La Page Facebook technique et la liaison magique</h2>
+  <div class="bebe">
+    <div class="t">Pourquoi une Page Facebook alors qu'on n'en veut pas ?</div>
+    Exigence historique de Meta : l'API de publication Instagram passe « par-dessus » une Page Facebook. Ta Page restera <strong>vide et invisible</strong> — c'est un adaptateur de prise, rien d'autre. Sans elle, le facteur reste à la porte (on a vérifié : tout marche AVANT sauf la publication, et tout marche APRÈS — c'est vraiment l'étape magique).
+  </div>
+  <div class="step"><span class="n">1</span><div>⚙️ Paramètres → <strong>Comptes → Pages</strong> → <strong>« + Ajouter » → « Créer une Page Facebook »</strong> → nom : le nom de ton entreprise → catégorie : la tienne → accepte les conditions → Créer.</div></div>
+  <div class="capture">création de la Page dans Business Manager</div>
+  <div class="step"><span class="n">2</span><div><strong>La liaison</strong>, côté Instagram : ouvre l'app Instagram sur ton téléphone → <strong>Profil → Modifier le profil → Page</strong> (section « Informations professionnelles ») → <strong>Se connecter à Facebook</strong> → choisis TA Page toute neuve → valide.</div></div>
+  <div class="capture">app Instagram : Modifier le profil → Page → sélection de la Page (3 écrans)</div>
+  <div class="step"><span class="n">3</span><div>Dernier câble : retour sur business.facebook.com → ⚙️ → <strong>Utilisateurs système → Facteur Usine → Affecter des éléments → Pages</strong> → coche ta Page → active <strong>« Contenu »</strong> → Affecter.</div></div>
+  <div class="check">
+    <div class="t">Point de contrôle 3.5</div>
+    Dans ⚙️ Paramètres → Comptes → Pages, clique ta Page → onglet « Éléments connectés » : ton compte <strong>Instagram y apparaît</strong>. Si oui, la liaison est faite — le courant passe. ✔
+  </div>
+
+  <h2><span class="num">3.6</span>Guichet 6 — Le badge magnétique : générer le token permanent</h2>
+  <div class="step"><span class="n">1</span><div>⚙️ → <strong>Utilisateurs système → Facteur Usine → « Générer un token »</strong>.</div></div>
+  <div class="step"><span class="n">2</span><div>Application : <strong>ton app</strong> → Suivant. Expiration : <strong>« Jamais »</strong> 🎯 (c'est LA case qui rend ton usine éternelle) → Suivant.</div></div>
+  <div class="capture">choix de l'app + case « Jamais » cochée</div>
+  <div class="step"><span class="n">3</span><div>Autorisations — coche exactement ces 6 cases (utilise la barre de recherche du menu) :<br>
+  <code>instagram_basic</code> · <code>instagram_content_publish</code> · <code>instagram_manage_comments</code> · <code>business_management</code> · <code>pages_show_list</code> · <code>pages_read_engagement</code></div></div>
+  <div class="step"><span class="n">4</span><div><strong>« Générer un token »</strong> → il s'affiche UNE SEULE FOIS → bouton <strong>Copier</strong> → colle-le immédiatement dans ton carnet / gestionnaire de mots de passe, avec l'étiquette « TOKEN META — SECRET ABSOLU ». C'est la 2e valeur de ton trésor.</div></div>
+  <div class="capture">le token généré (flouté) avec le bouton Copier fléché</div>
+  <div class="warn">
+    <div class="t">Le token est un SECRET ABSOLU</div>
+    Qui a ton token peut publier sur ton compte. Ne l'envoie jamais par email, ne le colle jamais dans un chat public, ne le mets jamais dans un fichier partagé. En cas de doute : Business Manager → Utilisateurs système → <strong>« Révoquer les tokens »</strong>, puis regénère (5 minutes). C'est le réflexe pompier à connaître.
+  </div>
+
+  <h2><span class="num">3.7</span>Le test de la victoire 🏆</h2>
+  <p>Vérifions que ton badge ouvre bien la porte. Double-clique sur <code>TESTER-TOKEN-Mac.command</code> / <code>TESTER-TOKEN-Windows.bat</code> du kit : il te demande de coller ton token et ton identifiant à 17 chiffres, puis interroge Meta.</p>
+  <div class="step"><span class="n">1</span><div>Si tout est bon, il affiche : <strong>ton nom de compte</strong>, ton nombre d'abonnés, et <code>quota_usage: 0</code> (= tu peux publier 100 fois par jour, tu en utiliseras 1 tous les 3 jours 😄).</div></div>
+  <div class="capture">la fenêtre du test avec la réponse de Meta encadrée en vert</div>
+  <div class="check">
+    <div class="t">Point de contrôle final du Module 3 — le plus important de la formation</div>
+    <ol>
+      <li>J'ai noté mon <strong>identifiant Instagram</strong> (17 chiffres) ✔</li>
+      <li>J'ai noté mon <strong>token permanent</strong> en lieu sûr ✔</li>
+      <li>Le <strong>test</strong> affiche mon nom de compte et <code>quota_usage: 0</code> ✔</li>
+    </ol>
+    3/3 ? Félicitations — tu viens de réussir ce que 90 % des gens abandonnent. Le plus dur est derrière toi : la suite n'est que de l'assemblage.
+  </div>
+
+  <h3>Glossaire du module — expliqué comme à un bébé</h3>
+  <div class="card">
+    <p><strong>API</strong> 🍽️ — le guichet officiel par lequel les programmes parlent à Instagram (comme un serveur transmet ta commande à la cuisine).</p>
+    <p><strong>App Meta</strong> 📋 — ton dossier administratif à la mairie Meta : il porte les autorisations.</p>
+    <p><strong>Portefeuille business</strong> 🗄️ — le classeur qui regroupe tout ce qui appartient à ton entreprise chez Meta (comptes, Pages, employés).</p>
+    <p><strong>Utilisateur système</strong> 🤖 — un employé-robot officiel : il n'a pas de mot de passe, il a un badge (le token). C'est lui, ton facteur.</p>
+    <p><strong>Token</strong> 🔑 — le badge magnétique du facteur. Le nôtre n'expire <em>jamais</em> : configuré une fois, tranquille pour toujours.</p>
+    <p><strong>Permission / autorisation</strong> ✅ — chaque case cochée = un droit précis (« publier du contenu », « répondre aux commentaires »). On ne donne que le nécessaire : 6 cases, pas une de plus.</p>
+  </div>
+
+  <a class="next" href="module-4.html">Continuer → Module 4 : héberger tes images gratuitement</a>
+  <div class="footer">Formation « Publie automatiquement sur Instagram : de zéro à l'usine cloud » — © WMG-STUDIO · wmg-studio.com</div>
+</main>
+</body>
+</html>

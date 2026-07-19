@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 5 — Ta première publication automatique | Formation WMG-STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="assets/wmg-logo.png" alt="WMG-STUDIO">
+  <span class="module-label">Module 5 / 7</span>
+  <nav><a href="index.html">← Sommaire</a><a href="module-6.html">Module 6 →</a></nav>
+</header>
+
+<main class="page">
+
+  <div class="badge">Module 5 · 45 minutes · prérequis : le trésor du Module 3 (identifiant + token)</div>
+  <h1>Ta première <span class="gold">publication automatique</span> 🎉</h1>
+  <p class="lead">C'est le grand jour : à la fin de ce module, un carrousel complet — avec sa légende, son commentaire quiz et sa story — sera publié sur ton Instagram <strong>par ton ordinateur</strong>, pendant que tu regardes.</p>
+
+  <h2><span class="num">5.0</span>Apprivoiser le terminal (10 minutes, une fois pour toutes)</h2>
+  <div class="bebe">
+    <div class="t">Expliqué comme à un bébé</div>
+    Le terminal, c'est <strong>parler à ton ordinateur par écrit</strong> au lieu de cliquer. Tu tapes une phrase (une « commande »), Entrée, il obéit et répond par écrit. C'est tout. Ça a l'air austère (fenêtre noire, curseur qui clignote) mais c'est juste une conversation — et tu n'auras que 3 phrases à connaître, toutes fournies à copier-coller.
+  </div>
+  <div class="step"><span class="n">Mac</span><div>Appuie sur <strong>Cmd + Espace</strong> (la loupe) → tape <code>Terminal</code> → Entrée. La fenêtre s'ouvre.</div></div>
+  <div class="step"><span class="n">Win</span><div>Menu Démarrer → tape <code>PowerShell</code> → Entrée. La fenêtre bleue s'ouvre.</div></div>
+  <div class="capture">Terminal Mac et PowerShell Windows côte à côte, annotés « c'est juste une conversation »</div>
+  <div class="step"><span class="n">1</span><div>Ta première phrase : tape <code>echo bonjour</code> puis Entrée. L'ordinateur répond <code>bonjour</code>. Voilà, tu sais parler terminal. 😄</div></div>
+  <div class="card gold"><strong>Copier-coller dans le terminal :</strong> Mac = Cmd+C / Cmd+V comme partout. Windows PowerShell = clic droit pour coller. Toutes les commandes de la formation se copient depuis l'espace membre avec le bouton 📋 — tu ne taperas jamais rien à la main.</div>
+
+  <h2><span class="num">5.1</span>Installer Python (le moteur du facteur)</h2>
+  <div class="bebe">
+    <div class="t">Python ?</div>
+    C'est le langage dans lequel le script du facteur est écrit. Tu n'apprendras pas Python — tu installes juste son « lecteur », comme on installe un lecteur vidéo pour lire un film.
+  </div>
+  <div class="step"><span class="n">Mac</span><div>Bonne nouvelle : déjà installé. Vérifie dans le Terminal : <code>python3 --version</code> → il répond « Python 3.x ». ✔</div></div>
+  <div class="step"><span class="n">Win</span><div>Va sur <strong>python.org/downloads</strong> → bouton jaune « Download Python » → lance l'installateur → <strong>⚠️ COCHE LA CASE « Add python.exe to PATH » en bas AVANT de cliquer Install</strong>. C'est l'erreur n°1 des débutants : sans cette case, l'ordinateur « ne trouve pas » Python ensuite.</div></div>
+  <div class="capture">installateur Windows avec la case Add to PATH entourée en rouge</div>
+  <div class="step"><span class="n">✓</span><div>Vérification (les deux systèmes) : ferme et rouvre le terminal → <code>python3 --version</code> (Mac) ou <code>python --version</code> (Windows) → « Python 3.x » s'affiche. ✔</div></div>
+
+  <h2><span class="num">5.2</span>Le trousseau de clés : le fichier <code>.env</code></h2>
+  <p>Le facteur a besoin de tes 2 trésors du Module 3. On les range dans un petit fichier que le script lira — et qui ne quittera <strong>jamais</strong> ton ordinateur.</p>
+  <div class="step"><span class="n">1</span><div>Dans VS Code (dossier du kit ouvert), ouvre le fichier <code>trousseau.env</code> :</div></div>
+  <div class="card">
+<pre style="font-family:monospace;font-size:15px;line-height:1.9">IG_ACCESS_TOKEN=COLLE_TON_TOKEN_ICI
+IG_USER_ID=COLLE_TES_17_CHIFFRES_ICI
+GITHUB_IMAGES=TON-COMPTE-GITHUB/mes-images</pre>
+  </div>
+  <div class="step"><span class="n">2</span><div>Remplace les 3 valeurs (token du Module 3.6, identifiant du Module 3.3, ton compte GitHub du Module 4). Pas d'espaces autour du <code>=</code>, pas de guillemets. Enregistre (Cmd/Ctrl+S).</div></div>
+  <div class="warn">
+    <div class="t">Ce fichier est ton coffre</div>
+    <code>trousseau.env</code> contient ton token. Il reste sur TON ordinateur : ne l'envoie jamais, ne le copie jamais dans le dépôt public <code>mes-images</code>. (Au Module 6, on utilisera le coffre-fort chiffré de GitHub à la place — encore plus sûr.)
+  </div>
+
+  <h2><span class="num">5.3</span>Ton premier carrousel : générer puis mettre en rayon</h2>
+  <p>Le kit contient un carrousel d'exemple complet (<code>publications/exemple-01/</code>) : 8 slides + la story + le fichier <code>legende.txt</code> (le texte sous le post + la réponse du quiz). Pour aujourd'hui, on publie l'exemple tel quel — tu personnaliseras au Module 7.</p>
+  <div class="step"><span class="n">1</span><div><strong>Génère les images</strong> : double-clique <code>GENERER-Mac.command</code> / <code>GENERER-Windows.bat</code> → les PNG apparaissent dans <code>publications/exemple-01/rendu/</code>, déjà nommés <code>exemple-01-slide-01.png</code>, etc.</div></div>
+  <div class="step"><span class="n">2</span><div><strong>Mets-les en rayon</strong> : comme au Module 4, va dans ton dépôt <code>mes-images</code> → <strong>Add file → Upload files</strong> → glisse <strong>tout le contenu</strong> du dossier <code>rendu/</code> → <strong>Commit changes</strong>. (Au Module 6, les robots feront cette étape à ta place — là, on apprend le geste une fois.)</div></div>
+  <div class="capture">upload du contenu de rendu/ dans mes-images, liste des fichiers préfixés visible</div>
+
+  <h2><span class="num">5.4</span>La répétition générale : le « dry-run »</h2>
+  <div class="bebe">
+    <div class="t">Dry-run ?</div>
+    « Répétition à sec » : le facteur fait TOUTE sa tournée (préparer les images, les déposer sur l'étagère, vérifier les accès Meta)… sauf le dernier geste. Rien n'apparaît sur Instagram. C'est le filet de sécurité avant chaque première fois.
+  </div>
+  <div class="step"><span class="n">1</span><div>Dans le terminal, colle la commande fournie : <br><code>python3 publier.py exemple-01 --repetition</code> <em>(Windows : <code>python</code> au lieu de <code>python3</code>)</em></div></div>
+  <div class="step"><span class="n">2</span><div>Lis ce qu'il raconte : il vérifie ton trousseau ✓, puis <strong>chaque image de l'étagère</strong> une par une ✓✓✓, et conclut « 🟡 RÉPÉTITION terminée : tout est prêt, rien n'a été publié ». Si une image manque, il te dit laquelle et quoi faire.</div></div>
+  <div class="capture">sortie du dry-run complète, annotée ligne par ligne</div>
+
+  <h2><span class="num">5.5</span>🚀 La vraie première fois</h2>
+  <div class="step"><span class="n">1</span><div>Même commande, sans le filet : <br><code>python3 publier.py exemple-01</code></div></div>
+  <div class="step"><span class="n">2</span><div>Regarde le facteur travailler (30 à 60 secondes) : images → étagère → « containers » Meta → <strong>« ✅ Publié ! »</strong> → commentaire quiz posté → story publiée.</div></div>
+  <div class="step"><span class="n">3</span><div>Ouvre Instagram sur ton téléphone. <strong>Ton carrousel est là. Ta story aussi.</strong> Tu viens de publier sans toucher Instagram. 🎉 <em>(Le post peut mettre 1-2 minutes à apparaître : Meta « digère ». C'est normal.)</em></div></div>
+  <div class="capture">le terminal « ✅ Publié ! » + le post visible sur le téléphone, côte à côte</div>
+  <div class="warn">
+    <div class="t">Si le facteur dit « Media ID is not available »</div>
+    Traduction : « Meta n'a pas fini de digérer, patiente ». Le script réessaie tout seul jusqu'à 5 fois. Si ça échoue quand même : attends 2 minutes et relance la même commande. (C'est LE message le plus fréquent — et le plus inoffensif.)
+  </div>
+
+  <div class="check">
+    <div class="t">Point de contrôle final du Module 5</div>
+    <ol>
+      <li>Le carrousel d'exemple est <strong>sur mon profil Instagram</strong>, publié par le script ✔</li>
+      <li>Le <strong>commentaire quiz</strong> est sous le post, la <strong>story</strong> est en ligne ✔</li>
+      <li>Je sais ce que fait <code>--repetition</code> et quand l'utiliser ✔</li>
+    </ol>
+    3/3 ? Ton facteur est opérationnel. Dernier chantier : le faire travailler <em>tout seul, à heure fixe, ordinateur éteint</em>. C'est le Module 6.
+  </div>
+
+  <h3>Glossaire du module — expliqué comme à un bébé</h3>
+  <div class="card">
+    <p><strong>Terminal</strong> ⌨️ — parler à l'ordinateur par écrit. Une commande = une phrase + Entrée.</p>
+    <p><strong>Python</strong> 🐍 — le langage du script. Tu installes son lecteur, pas besoin de l'apprendre.</p>
+    <p><strong>Script</strong> 📜 — une liste d'instructions que l'ordinateur exécute dans l'ordre. Notre script s'appelle <code>publier.py</code> : c'est le cerveau du facteur.</p>
+    <p><strong>.env</strong> 🔐 — le trousseau : un fichier local qui contient tes clés. Le script le lit, personne d'autre.</p>
+    <p><strong>Container</strong> 📦 — le « colis en préparation » chez Meta : tu déposes les images, Meta les emballe, puis tu dis « envoie ! ». Le script gère ça tout seul.</p>
+  </div>
+
+  <a class="next" href="module-6.html">Continuer → Module 6 : l'usine cloud, ton ordinateur peut dormir</a>
+  <div class="footer">Formation « Publie automatiquement sur Instagram : de zéro à l'usine cloud » — © WMG-STUDIO · wmg-studio.com</div>
+</main>
+</body>
+</html>

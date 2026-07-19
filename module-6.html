@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 6 — L'usine cloud : ton ordinateur peut dormir | Formation WMG-STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="assets/wmg-logo.png" alt="WMG-STUDIO">
+  <span class="module-label">Module 6 / 7</span>
+  <nav><a href="index.html">← Sommaire</a><a href="module-7.html">Module 7 →</a></nav>
+</header>
+
+<main class="page">
+
+  <div class="badge">Module 6 · 60 minutes · prérequis : Module 5 réussi (première publication faite)</div>
+  <h1>L'usine cloud : <span class="gold">ton ordinateur peut dormir</span></h1>
+  <p class="lead">Jusqu'ici, le facteur travaille quand TU lances la commande. Dans ce module, on déménage toute l'équipe chez GitHub : tous les 3 jours à 8h, le carrousel se prépare tout seul, ton téléphone sonne, tu réponds <strong>/publier</strong> — et c'est en ligne. Ordinateur éteint, en vacances, au ski : l'usine tourne.</p>
+
+  <div class="bebe">
+    <div class="t">Expliqué comme à un bébé — GitHub Actions</div>
+    GitHub ne fait pas que stocker des dossiers : il <strong>prête gratuitement des ordinateurs</strong> qui exécutent tes instructions. Tu écris sur une feuille « tous les 3 jours à 8h, fais ceci » (cette feuille s'appelle un <em>workflow</em>), tu la ranges dans ton dépôt, et GitHub règle son réveil-matin. C'est notre déménagement : le dessinateur, le messager et le facteur quittent ton ordinateur pour l'immeuble GitHub, ouvert 24h/24.
+  </div>
+
+  <h2><span class="num">6.1</span>Créer le bâtiment de l'usine (dépôt privé)</h2>
+  <div class="step"><span class="n">1</span><div>Sur github.com : <strong>+ → New repository</strong> → nom : <code>mon-usine</code> → visibilité : <strong>Private</strong> 🔒 (l'usine contient ta stratégie de contenu — elle ne regarde personne) → coche « Add a README » → <strong>Create</strong>.</div></div>
+  <div class="capture">création du dépôt privé mon-usine, case Private fléchée</div>
+
+  <h2><span class="num">6.2</span>Déménager les fichiers (sans ligne de commande)</h2>
+  <div class="step"><span class="n">1</span><div>Dans ton dépôt <code>mon-usine</code> → <strong>Add file → Upload files</strong>.</div></div>
+  <div class="step"><span class="n">2</span><div>Ouvre le dossier du kit sur ton Bureau, sélectionne <strong>TOUT SON CONTENU</strong> (Cmd+A / Ctrl+A) <strong>SAUF <code>trousseau.env</code></strong> (tes clés ne montent JAMAIS ici — décoche-le / ne le glisse pas) → glisse tout dans la page GitHub.</div></div>
+  <div class="warn">
+    <div class="t">Vérification vitale avant de valider</div>
+    Dans la liste des fichiers à envoyer affichée par GitHub, vérifie que <code>trousseau.env</code> N'Y EST PAS. Le kit contient un garde-fou (fichier <code>.gitignore</code>) qui le bloque, mais on vérifie quand même à l'œil : c'est ton token.
+  </div>
+  <div class="step"><span class="n">3</span><div>Bouton vert <strong>Commit changes</strong> → patiente (il y a des images) → tes dossiers apparaissent : <code>template/</code>, <code>publications/</code>, <code>robots/</code>…</div></div>
+  <div class="capture">le dépôt rempli après upload, arborescence visible</div>
+
+  <h2><span class="num">6.3</span>Le coffre-fort des clés (les « secrets »)</h2>
+  <p>Sur ton ordinateur, les clés vivaient dans <code>trousseau.env</code>. Chez GitHub, elles vont dans un coffre chiffré que même toi ne pourras plus relire (juste remplacer) :</p>
+  <div class="step"><span class="n">1</span><div>Dans <code>mon-usine</code> → <strong>Settings</strong> (onglet en haut) → menu gauche : <strong>Secrets and variables → Actions</strong> → bouton <strong>New repository secret</strong>.</div></div>
+  <div class="capture">chemin Settings → Secrets and variables → Actions</div>
+  <div class="step"><span class="n">2</span><div>Crée les <strong>3 premiers secrets</strong>, un par un — le NOM doit être EXACTEMENT celui-ci (majuscules comprises) :<br>
+  · Name : <code>IG_ACCESS_TOKEN</code> → Secret : colle ton token<br>
+  · Name : <code>IG_USER_ID</code> → Secret : tes 17 chiffres<br>
+  · Name : <code>GITHUB_IMAGES</code> → Secret : <code>ton-compte/mes-images</code></div></div>
+  <h3>6.3 bis — Le 4ᵉ secret : le passe-étagère du dessinateur</h3>
+  <div class="bebe">
+    <div class="t">Pourquoi un 4ᵉ secret ?</div>
+    Au Module 5, c'est TOI qui déposais les images sur l'étagère <code>mes-images</code>. Maintenant c'est le robot dessinateur — il lui faut donc son propre passe pour y entrer. Chez GitHub, ce passe s'appelle un « jeton d'accès » : on va en fabriquer un limité <strong>uniquement</strong> à l'étagère (s'il fuyait, il n'ouvrirait rien d'autre).
+  </div>
+  <div class="step"><span class="n">a</span><div>Ton avatar (en haut à droite) → <strong>Settings</strong> → tout en bas à gauche <strong>Developer settings</strong> → <strong>Personal access tokens → Fine-grained tokens</strong> → <strong>Generate new token</strong>.</div></div>
+  <div class="step"><span class="n">b</span><div>Name : <code>passe-etagere</code> · Expiration : <strong>1 an</strong> (note un rappel dans ton agenda !) · Repository access : <strong>Only select repositories → mes-images</strong> · Permissions : <strong>Contents → Read and write</strong> → <strong>Generate token</strong>.</div></div>
+  <div class="capture">création du fine-grained token : accès limité à mes-images + permission Contents</div>
+  <div class="step"><span class="n">c</span><div>Copie le passe affiché (il commence par <code>github_pat_…</code>) → retourne dans <code>mon-usine</code> → Settings → Secrets → <strong>New repository secret</strong> → Name : <code>GH_IMAGES_TOKEN</code> → colle → Add.</div></div>
+  <div class="step"><span class="n">3</span><div>La liste affiche tes <strong>4 secrets</strong> avec des pastilles vertes. GitHub ne montrera plus jamais leur valeur : c'est le principe du coffre.</div></div>
+  <div class="capture">liste des 4 secrets créés</div>
+
+  <h2><span class="num">6.4</span>Réveiller le dessinateur (workflow « préparer »)</h2>
+  <p>Les feuilles d'instructions des robots sont déjà dans le kit, dossier <code>robots/</code> (chez GitHub, il s'affiche <code>.github/workflows/</code>). Il y en a deux :</p>
+  <table>
+    <tr><th>Robot</th><th>Feuille</th><th>Ce qu'il fait</th></tr>
+    <tr><td>🎨 Le dessinateur-messager</td><td><code>preparer.yml</code></td><td>Tous les 3 jours à 8h : dessine le prochain carrousel, dépose les aperçus, t'ouvre un <strong>ticket de validation</strong></td></tr>
+    <tr><td>📮 Le facteur</td><td><code>publier.yml</code></td><td>Quand tu écris <code>/publier</code> dans le ticket : publie tout (carrousel + quiz + story) et ferme le ticket</td></tr>
+  </table>
+  <div class="step"><span class="n">1</span><div>Onglet <strong>Actions</strong> de ton dépôt → si GitHub demande « I understand my workflows, go ahead and enable them » → clique (tu actives tes robots).</div></div>
+  <div class="step"><span class="n">2</span><div>Test immédiat sans attendre 3 jours : dans Actions → menu gauche <strong>« Préparer le prochain carrousel »</strong> → bouton <strong>Run workflow → Run workflow</strong>. Le robot démarre (rond jaune → coche verte, ~2 minutes).</div></div>
+  <div class="capture">bouton Run workflow + le run qui passe au vert</div>
+
+  <h2><span class="num">6.5</span>Ton téléphone sonne : le ticket de validation</h2>
+  <div class="step"><span class="n">1</span><div>📱 <strong>Ding !</strong> L'app GitHub t'envoie une notification : « 📋 Validation — carrousel prêt ». Ouvre-la.</div></div>
+  <div class="step"><span class="n">2</span><div>Le ticket (une « issue ») montre <strong>toutes les slides en aperçu</strong>, la story, et la légende prévue. Fais défiler, vérifie.</div></div>
+  <div class="capture">l'issue sur le téléphone : aperçus + légende, défilement</div>
+  <div class="step"><span class="n">3</span><div>Tout te va ? En bas du ticket, écris le commentaire : <code>/publier</code> → envoie. <em>(Un souci ? Écris <code>/annuler</code> : le carrousel est mis de côté, rien ne part.)</em></div></div>
+  <div class="step"><span class="n">4</span><div>2 minutes plus tard, nouvelle notification : « ✅ Publié sur ton compte ! ». Ouvre Instagram : c'est en ligne. <strong>Tu n'as pas touché un ordinateur.</strong></div></div>
+  <div class="capture">le commentaire /publier + la réponse ✅ du robot + le post en ligne (3 écrans)</div>
+
+  <div class="card gold">
+    <strong>Ce qui vient de se passer, en une phrase :</strong> un ordinateur gratuit de GitHub s'est allumé, a dessiné tes slides, t'a demandé la permission, a publié sur Instagram via ta clé officielle, puis s'est éteint. Il recommencera tous les 3 jours, pour toujours, sans toi.
+  </div>
+
+  <div class="check">
+    <div class="t">Point de contrôle final du Module 6 — le test « ordinateur éteint »</div>
+    <ol>
+      <li>Mes 4 secrets sont dans le coffre (pastilles vertes) ✔</li>
+      <li>Le run « Préparer » passe au <strong>vert</strong> ✔</li>
+      <li>J'ai reçu la notification, validé avec <code>/publier</code>, et le post est en ligne — <strong>avec mon ordinateur ÉTEINT</strong> ✔</li>
+    </ol>
+    3/3 ? Ton usine est autonome. Éteins ton ordinateur ce soir la conscience tranquille : rendez-vous dans 3 jours sur ton téléphone. 🏭✨
+  </div>
+
+  <h3>Glossaire du module — expliqué comme à un bébé</h3>
+  <div class="card">
+    <p><strong>Workflow</strong> 📋 — la feuille d'instructions d'un robot GitHub : « quand X arrive, fais Y ».</p>
+    <p><strong>Cron</strong> ⏰ — le réveil-matin des robots. <code>0 6 */3 * *</code> se lit « à 6h (temps universel = 8h chez nous l'été), tous les 3 jours ».</p>
+    <p><strong>Secret</strong> 🔒 — une clé rangée dans le coffre chiffré de GitHub. Les robots peuvent s'en servir, personne ne peut la relire.</p>
+    <p><strong>Issue / ticket</strong> 🎫 — une fiche de discussion dans un dépôt. Chez nous : le bon de validation que le messager t'apporte.</p>
+    <p><strong>Run</strong> 🏃 — une exécution d'un robot. Vert = réussi, rouge = raté (et le Module 7 t'apprend à lire pourquoi).</p>
+  </div>
+
+  <a class="next" href="module-7.html">Continuer → Module 7 : faire vivre ton usine</a>
+  <div class="footer">Formation « Publie automatiquement sur Instagram : de zéro à l'usine cloud » — © WMG-STUDIO · wmg-studio.com</div>
+</main>
+</body>
+</html>

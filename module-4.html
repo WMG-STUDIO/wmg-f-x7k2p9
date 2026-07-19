@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 4 — Héberger tes images gratuitement | Formation WMG-STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="assets/wmg-logo.png" alt="WMG-STUDIO">
+  <span class="module-label">Module 4 / 7</span>
+  <nav><a href="index.html">← Sommaire</a><a href="module-5.html">Module 5 →</a></nav>
+</header>
+
+<main class="page">
+
+  <div class="badge">Module 4 · 20 minutes · le module le plus court</div>
+  <h1>Héberger tes images, <span class="gold">gratuitement</span></h1>
+  <p class="lead">Petite étape indispensable : donner une adresse internet publique à tes images. Bonne nouvelle : ton compte GitHub du Module 1 fait ça gratuitement, en 3 clics.</p>
+
+  <div class="bebe">
+    <div class="t">Expliqué comme à un bébé</div>
+    Quand ton facteur dit à Instagram « publie cette image », il ne peut pas lui <em>tendre</em> l'image : Instagram exige d'aller <strong>la chercher lui-même à une adresse</strong>, comme un livreur qui veut un point de retrait, pas un colis dans la rue. On va donc créer ton <strong>point de retrait</strong> : une étagère publique sur GitHub où l'usine déposera les images le temps qu'Instagram vienne les chercher.
+  </div>
+
+  <h2><span class="num">4.1</span>Pourquoi « public » et est-ce grave ?</h2>
+  <p>L'étagère doit être <strong>publique</strong> (sinon Instagram ne peut pas venir chercher). Est-ce un problème ? Non : on n'y dépose <strong>que les images en cours de publication</strong> — des images qui, par définition, seront publiques sur ton profil quelques secondes plus tard. Aucun secret n'y passe jamais (jamais de token, jamais de mot de passe).</p>
+
+  <h2><span class="num">4.2</span>Créer ton étagère (un « dépôt » public)</h2>
+  <div class="step"><span class="n">1</span><div>Sur <strong>github.com</strong> (connecté), clique le <strong>+</strong> en haut à droite → <strong>« New repository »</strong>.</div></div>
+  <div class="capture">menu + → New repository, fléché</div>
+  <div class="step"><span class="n">2</span><div>Nom : <code>mes-images</code> · Visibilité : <strong>Public</strong> · coche <strong>« Add a README file »</strong> (ça évite une étagère 100 % vide) → <strong>Create repository</strong>.</div></div>
+  <div class="capture">formulaire de création : nom, Public coché, README coché</div>
+  <div class="bebe">
+    <div class="t">« Repository » ? « Dépôt » ?</div>
+    C'est juste un dossier hébergé chez GitHub. Comme un dossier sur ton Bureau, mais accessible par internet. Rien de plus.
+  </div>
+
+  <h2><span class="num">4.3</span>Comprendre l'adresse publique d'une image</h2>
+  <p>Testons à la main une fois, pour comprendre (ensuite l'usine le fera toute seule) :</p>
+  <div class="step"><span class="n">1</span><div>Dans ton dépôt <code>mes-images</code> → <strong>« Add file » → « Upload files »</strong> → glisse ta slide du Module 2 (<code>rendu/slide-modele.png</code>) → bouton vert <strong>« Commit changes »</strong>.</div></div>
+  <div class="capture">glisser-déposer de l'image + bouton Commit changes</div>
+  <div class="step"><span class="n">2</span><div>Clique sur le fichier dans la liste → clique le bouton <strong>« Raw »</strong>. Ton navigateur affiche l'image seule, avec une adresse qui ressemble à :<br><code>https://raw.githubusercontent.com/TON-COMPTE/mes-images/main/slide-modele.png</code></div></div>
+  <div class="step"><span class="n">3</span><div><strong>C'est ça, une adresse publique d'image.</strong> Copie-la, ouvre un onglet en navigation privée, colle-la : l'image s'affiche sans connexion → Instagram pourra venir la chercher exactement pareil.</div></div>
+  <div class="capture">l'image ouverte en Raw avec l'adresse surlignée dans la barre</div>
+
+  <div class="check">
+    <div class="t">Point de contrôle final du Module 4</div>
+    <ol>
+      <li>Mon dépôt public <code>mes-images</code> existe ✔</li>
+      <li>Ma slide y est déposée, et son adresse « Raw » s'ouvre <strong>en navigation privée</strong> ✔</li>
+      <li>Je peux expliquer pourquoi l'étagère est publique sans danger ✔</li>
+    </ol>
+    3/3 ? Ton point de retrait est ouvert. Au Module 5, on fait ta toute première publication automatique. 🚀
+  </div>
+
+  <h3>Glossaire du module — expliqué comme à un bébé</h3>
+  <div class="card">
+    <p><strong>Dépôt (repository)</strong> 📁 — un dossier hébergé sur GitHub, accessible par internet.</p>
+    <p><strong>Public / privé</strong> 👁️ — public : tout le monde peut regarder (pas modifier !). Privé : seulement toi. Nos secrets iront toujours dans du privé ; nos images en cours de publication, dans du public.</p>
+    <p><strong>URL / adresse</strong> 🏷️ — l'adresse postale d'un fichier sur internet. Celle qui commence par <code>https://…</code></p>
+    <p><strong>Commit</strong> 📮 — le mot de GitHub pour « enregistrer ce dépôt de fichiers ». Chaque commit garde une trace datée (pratique : rien ne se perd jamais).</p>
+  </div>
+
+  <a class="next" href="module-5.html">Continuer → Module 5 : ta première publication automatique</a>
+  <div class="footer">Formation « Publie automatiquement sur Instagram : de zéro à l'usine cloud » — © WMG-STUDIO · wmg-studio.com</div>
+</main>
+</body>
+</html>
