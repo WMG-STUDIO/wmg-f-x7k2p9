@@ -28,6 +28,43 @@
     Meta (la maison-mère d'Instagram), c'est la <strong>mairie</strong>. Pour que ton facteur ait le droit de poster à ta place, il faut : déposer un dossier à la mairie (l'« app »), déclarer ton entreprise (le « portefeuille business »), embaucher officiellement ton facteur (l'« utilisateur système »), et lui remettre <strong>un badge magnétique qui n'expire jamais</strong> (le « token »). C'est de l'administratif — pas difficile, juste précis. On y va guichet par guichet.
   </div>
 
+  <svg viewBox="0 0 900 300" style="width:100%;height:auto;margin:20px 0" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat, sans-serif">
+    <defs>
+      <marker id="ar3" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#B8942A" stroke-width="1.6"/></marker>
+    </defs>
+    <!-- container : portefeuille business -->
+    <rect x="8" y="8" width="884" height="200" rx="18" fill="none" stroke="#D4AF37" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="30" y="34" font-size="14" font-weight="800" fill="#B8942A">🏢 TON PORTEFEUILLE BUSINESS META (ton entreprise déclarée)</text>
+    <!-- node facteur -->
+    <g>
+      <rect x="40" y="60" width="220" height="120" rx="16" fill="#FFFFFF" stroke="#2B2D33" stroke-width="2.5"/>
+      <text x="150" y="98" font-size="34" text-anchor="middle">🤖</text>
+      <text x="150" y="130" font-size="17" font-weight="800" text-anchor="middle" fill="#2B2D33">Le facteur</text>
+      <text x="150" y="154" font-size="13" text-anchor="middle" fill="#6B7280">a la clé 🔑 (le token)</text>
+      <text x="150" y="171" font-size="13" text-anchor="middle" fill="#6B7280">qui n'expire jamais</text>
+    </g>
+    <!-- node page -->
+    <g>
+      <rect x="340" y="60" width="220" height="120" rx="16" fill="#FFFFFF" stroke="#2B2D33" stroke-width="2.5"/>
+      <text x="450" y="98" font-size="34" text-anchor="middle">📄</text>
+      <text x="450" y="130" font-size="17" font-weight="800" text-anchor="middle" fill="#2B2D33">Page Facebook</text>
+      <text x="450" y="154" font-size="13" text-anchor="middle" fill="#6B7280">l'adaptateur</text>
+      <text x="450" y="171" font-size="13" text-anchor="middle" fill="#6B7280">OBLIGATOIRE</text>
+    </g>
+    <!-- node instagram -->
+    <g>
+      <rect x="640" y="60" width="220" height="120" rx="16" fill="#FDF8EA" stroke="#D4AF37" stroke-width="2.5"/>
+      <text x="750" y="98" font-size="34" text-anchor="middle">📷</text>
+      <text x="750" y="130" font-size="17" font-weight="800" text-anchor="middle" fill="#B8942A">Ton Instagram</text>
+      <text x="750" y="158" font-size="13" text-anchor="middle" fill="#6B7280">la publication arrive ici</text>
+    </g>
+    <!-- arrows -->
+    <line x1="262" y1="120" x2="336" y2="120" stroke="#B8942A" stroke-width="2.5" marker-end="url(#ar3)"/>
+    <line x1="562" y1="120" x2="636" y2="120" stroke="#B8942A" stroke-width="2.5" marker-end="url(#ar3)"/>
+    <text x="450" y="252" font-size="14" font-weight="700" text-anchor="middle" fill="#B04343">⚠️ Sans la Page Facebook (l'adaptateur), le facteur reste à la porte.</text>
+    <text x="450" y="278" font-size="13.5" text-anchor="middle" fill="#6B7280">Tout ce module sert à assembler ces pièces et à fabriquer la clé 🔑.</text>
+  </svg>
+
   <div class="warn">
     <div class="t">⚠️ L'avertissement qui te sauvera une soirée</div>
     Dans la console Meta, tu croiseras une page « Configuration de l'API avec la connexion <strong>Instagram</strong> » qui promet un bouton « Générer un token ». <strong>Ce bouton n'apparaît jamais</strong> (interface incomplète chez Meta, vérifié et re-vérifié). Des centaines de débutants s'y perdent des heures. Nous, on passe par la porte qui marche : le <strong>Business Manager</strong>. Si tu te retrouves sur cette page piège : ferme-la, reviens au guide.
