@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ton aventure — WMG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2B2D33;--ink-soft:#3A3D45;--gray:#6B7280;--gold:#D4AF37;--gold-dark:#B8942A;--cta:#2D5BFF;--cta-dark:#1E43D9;--bg:#F7F5F1;--line:#E8E4DC;--white:#fff;--green:#3d9a50}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #FBF9F4, #F1ECE2),
+      repeating-linear-gradient(0deg, transparent 0 63px, rgba(212,175,55,0.05) 63px 64px),
+      repeating-linear-gradient(90deg, transparent 0 63px, rgba(212,175,55,0.05) 63px 64px);
+    display:flex;flex-direction:column;min-height:100%;
+  }
+  /* barre du haut */
+  .top{display:flex;align-items:center;gap:16px;padding:18px 22px}
+  .top img{height:34px}
+  .bar{flex:1;height:12px;background:#EDE7DB;border-radius:99px;overflow:hidden}
+  .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-dark));border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .step-count{font-weight:800;color:var(--gold-dark);font-size:14px;min-width:54px;text-align:right}
+  /* scène centrale */
+  .stage{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 20px 30px}
+  .card{
+    width:100%;max-width:560px;background:var(--white);border:2px solid var(--line);
+    border-radius:26px;padding:44px 38px 34px;text-align:center;
+    box-shadow:0 30px 70px rgba(43,45,51,.12);
+    animation:pop .35s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  .emoji{font-size:88px;line-height:1;margin-bottom:8px;display:inline-block}
+  .emoji.wiggle{animation:wig 1.4s ease-in-out infinite}
+  @keyframes wig{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+  .kicker{color:var(--gold-dark);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px;margin-bottom:12px}
+  h1{font-family:'Roboto',sans-serif;font-weight:900;font-size:30px;line-height:1.2;margin-bottom:14px}
+  h1 .g{color:var(--gold-dark)}
+  p.msg{font-size:18px;color:var(--ink-soft);line-height:1.55;max-width:440px;margin:0 auto 26px}
+  .btns{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+  .btn{border:none;cursor:pointer;font-family:'Montserrat';font-weight:800;font-size:18px;padding:17px 22px;border-radius:15px;transition:transform .1s}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:var(--cta);color:#fff;box-shadow:0 12px 24px rgba(45,91,255,.28)}
+  .btn.gold{background:var(--gold);color:#fff;box-shadow:0 12px 24px rgba(212,175,55,.3)}
+  .btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line)}
+  .btn.ghost b{color:var(--gold-dark)}
+  .prev{margin-top:16px;background:none;border:none;color:var(--gray);font-family:'Montserrat';font-weight:600;font-size:14px;cursor:pointer}
+  .prev:hover{color:var(--ink)}
+  .hint{font-size:13.5px;color:var(--gray);margin-top:14px}
+  /* mini flow (usine) */
+  .flow{display:flex;justify-content:center;gap:6px;align-items:center;margin:6px 0 22px;flex-wrap:wrap}
+  .chip{background:#FBF9F4;border:2px solid var(--line);border-radius:14px;padding:12px 10px;min-width:92px}
+  .chip .e{font-size:30px}
+  .chip .n{font-size:12px;font-weight:800;margin-top:2px}
+  .flow .arr{color:var(--gold-dark);font-weight:900;font-size:20px}
+  .done{color:var(--green);font-weight:800}
+  /* confetti */
+  .confetti{position:fixed;top:-10px;font-size:20px;animation:fall 2.4s linear forwards;pointer-events:none;z-index:5}
+  @keyframes fall{to{transform:translateY(105vh) rotate(360deg);opacity:.9}}
+  .foot{text-align:center;color:var(--gray);font-size:12px;padding:0 0 14px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <img src="wmg-logo.png" alt="WMG">
+    <div class="bar"><span id="fill"></span></div>
+    <div class="step-count" id="count"></div>
+  </div>
+  <div class="stage"><div class="card" id="card"></div></div>
+  <div class="foot">Prototype d'aventure — WMG-STUDIO · c'est une démo du <b>nouveau format</b></div>
+
+<script>
+// ---- L'histoire, étape par étape. Peu de texte, une action. ----
+const steps = [
+  {emoji:"🏭", wiggle:true, kicker:"Ton aventure commence",
+   title:"Tu vas ouvrir ton <span class='g'>usine à publications</span>",
+   msg:"Elle va publier sur Instagram à ta place. Toute seule. Même quand ton ordi est éteint.",
+   btns:[{label:"Je suis prêt·e 🚀", cls:"primary", go:1}]},
+
+  {emoji:"🤝", kicker:"Chapitre 1",
+   title:"On va embaucher <span class='g'>3 robots</span>",
+   msg:"Ils sont gratuits, ils ne dorment jamais. Tu veux les rencontrer ?",
+   btns:[{label:"Oui, présente-les moi", cls:"primary", go:2}]},
+
+  {emoji:"🎨", wiggle:true, kicker:"Robot 1 / 3",
+   title:"Voici le <span class='g'>Dessinateur</span>",
+   msg:"Il fabrique tes belles images de publication. Toi tu écris l'idée, lui dessine.",
+   btns:[{label:"Robot suivant →", cls:"gold", go:3}]},
+
+  {emoji:"📱", wiggle:true, kicker:"Robot 2 / 3",
+   title:"Voici le <span class='g'>Messager</span>",
+   msg:"Quand c'est prêt, il te fait « ding ! » sur ton téléphone : « On publie ? »",
+   btns:[{label:"Robot suivant →", cls:"gold", go:4}]},
+
+  {emoji:"📮", wiggle:true, kicker:"Robot 3 / 3",
+   title:"Voici le <span class='g'>Facteur</span>",
+   msg:"Tu réponds « oui », et hop — il poste sur Instagram. Terminé.",
+   btns:[{label:"Voir mon usine complète", cls:"gold", go:5}]},
+
+  {emoji:"", kicker:"Ton équipe",
+   title:"Voilà ton <span class='g'>usine</span> 🎉",
+   flow:true,
+   msg:"Le chef, c'est toi 👑 — rien ne part sans ton « oui ».",
+   btns:[{label:"Commencer à la construire", cls:"primary", go:6}]},
+
+  {emoji:"🔑", kicker:"Première mission",
+   title:"D'abord, <span class='g'>tes clés</span>",
+   msg:"Pour ouvrir l'usine, il te faut quelques comptes. Mais peut-être que tu en as déjà !",
+   btns:[{label:"Voyons ce que j'ai déjà", cls:"primary", go:7}]},
+
+  {emoji:"📸", kicker:"Question", branch:true,
+   title:"As-tu déjà un <span class='g'>compte Instagram</span> ?",
+   msg:"",
+   btns:[
+     {label:"✅ Oui, j'en ai un", cls:"ghost", go:8},
+     {label:"❌ Non, pas encore", cls:"ghost", go:9}
+   ]},
+
+  {emoji:"🙌", kicker:"Parfait",
+   title:"Génial, on <span class='g'>saute cette étape</span> !",
+   msg:"Tu gardes ton compte. On passe direct à la suite. (Tu vois ? Pas de temps perdu.)",
+   btns:[{label:"Continuer →", cls:"primary", go:10}]},
+
+  {emoji:"📲", kicker:"Mission · action",
+   title:"Installe <span class='g'>Instagram</span>",
+   msg:"Sur ton téléphone, ouvre le magasin d'applis et installe Instagram. Je t'attends 😊",
+   btns:[
+     {label:"C'est fait ✓", cls:"primary", go:10},
+     {label:"Comment on fait ?", cls:"ghost", go:10}
+   ],
+   hint:"Astuce : cherche « Instagram » dans l'App Store (iPhone) ou Play Store (Android)."},
+
+  {emoji:"🏆", kicker:"Bravo !", confetti:true,
+   title:"Tu as fini le <span class='g'>chapitre 1</span> !",
+   msg:"Tu as rencontré ton équipe et commencé tes clés. Facile, non ? Et tu n'as pas vu le temps passer 😉",
+   btns:[
+     {label:"Continuer l'aventure →", cls:"primary", go:0, restart:true},
+     {label:"↩︎ Recommencer la démo", cls:"ghost", go:0, restart:true}
+   ]},
+];
+
+const TOTAL = 11;
+let i = 0;
+const card = document.getElementById('card');
+const fill = document.getElementById('fill');
+const count = document.getElementById('count');
+
+function flowHTML(){
+  const items = [["🎨","Dessinateur"],["📱","Messager"],["📮","Facteur"],["📷","Instagram"]];
+  return '<div class="flow">'+items.map((it,k)=>
+    `<div class="chip"><div class="e">${it[0]}</div><div class="n">${it[1]}</div></div>`+
+    (k<3?'<span class="arr">→</span>':'')
+  ).join('')+'</div>';
+}
+
+function render(){
+  const s = steps[i];
+  const pct = Math.round((i/(TOTAL-1))*100);
+  fill.style.width = pct+'%';
+  count.textContent = (i+1)+' / '+TOTAL;
+  card.innerHTML =
+    (s.kicker?`<div class="kicker">${s.kicker}</div>`:'')+
+    (s.emoji?`<div class="emoji ${s.wiggle?'wiggle':''}">${s.emoji}</div>`:'')+
+    `<h1>${s.title}</h1>`+
+    (s.flow?flowHTML():'')+
+    (s.msg?`<p class="msg">${s.msg}</p>`:'')+
+    '<div class="btns">'+s.btns.map((b,k)=>`<button class="btn ${b.cls}" data-k="${k}">${b.label}</button>`).join('')+'</div>'+
+    (s.hint?`<div class="hint">${s.hint}</div>`:'')+
+    (i>0?'<button class="prev" id="prev">← précédent</button>':'');
+  card.querySelectorAll('.btn').forEach(btn=>{
+    btn.onclick=()=>{ const b=s.btns[btn.dataset.k]; if(b.confetti||s.confetti)party(); i=b.restart?0:b.go; render(); };
+  });
+  if(s.confetti) party();
+  const p=document.getElementById('prev'); if(p)p.onclick=()=>{ i=Math.max(0,i-1); render(); };
+}
+function party(){
+  const em=['🎉','✨','🎊','💛','⭐'];
+  for(let n=0;n<26;n++){
+    const c=document.createElement('div');c.className='confetti';
+    c.textContent=em[n%em.length];
+    c.style.left=(5+Math.random()*90)+'vw';
+    c.style.animationDelay=(Math.random()*0.5)+'s';
+    document.body.appendChild(c);setTimeout(()=>c.remove(),2600);
+  }
+}
+render();
+</script>
+</body>
+</html>
