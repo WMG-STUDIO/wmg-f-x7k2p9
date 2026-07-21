@@ -278,8 +278,13 @@ const FORMATION = {
        btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
       {type:'action', emoji:"🗄️", kicker:"Guichet 2",
        title:`Crée ton <span class="g">portefeuille business</span>`,
-       msg:`Sur business.facebook.com → « Créer un compte » → nom de ton entreprise + email du projet.`,
+       msg:`Sur business.facebook.com. Avance avec les flèches 👇`,
+       slider:[
+         {src:"shots/portefeuille/1.png", cap:"Ouvre le sélecteur en haut à gauche, puis clique « Créer un portefeuille business »."},
+         {src:"shots/portefeuille/2.png", cap:"Écris le nom de ton entreprise, ton prénom, ton nom et ton e-mail professionnel, puis « Créer »."}
+       ],
        say:`C'est le classeur qui regroupe tout ce qui t'appartient chez Meta.`,
+       hint:`Le nom doit correspondre au nom public de ton entreprise — il sera visible sur Meta.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
       {type:'branch', emoji:"🔐", kicker:"Vérification",
        title:`La <span class="g">double sécurité</span> est-elle déjà activée ?`,
