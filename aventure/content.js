@@ -322,7 +322,17 @@ const FORMATION = {
        btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
       {type:'action', emoji:"🔗", kicker:"Guichet 5 bis · LE branchement",
        title:`Relie ta Page à ton <span class="g">Instagram</span>`,
-       msg:`Sur ton téléphone, dans l'appli Instagram : ton profil → « Modifier le profil » → « Page » → choisis ta Page Facebook.`,
+       msg:`Sur ton téléphone, dans l'appli Instagram. Avance avec les flèches 👇`,
+       slider:[
+         {src:"shots/liaison/1.png", cap:"Ouvre ton profil Instagram et appuie sur « Modifier le profil »."},
+         {src:"shots/liaison/2.png", cap:"Descends jusqu'à Facebook, puis appuie sur « Associer une Page Facebook »."},
+         {src:"shots/liaison/3.png", cap:"Appuie sur le bouton bleu « Se connecter à Facebook »."},
+         {src:"shots/liaison/4.png", cap:"Une fenêtre demande l'autorisation : appuie sur « Continuer »."},
+         {src:"shots/liaison/5.png", cap:"Coche la case « Je ne suis pas un robot »."},
+         {src:"shots/liaison/6.png", cap:"Connecte-toi à ton compte Facebook (e-mail + mot de passe)."},
+         {src:"shots/liaison/7.png", cap:"Fenêtre de cookies : appuie sur « Refuser les cookies optionnels »."},
+         {src:"shots/liaison/8.png", cap:"Choisis ta Page dans la liste, puis appuie sur « Associer ». 🎉"}
+       ],
        say:`Si Instagram te demande de te connecter à Facebook, dis oui — cette fois on ne l'ignore pas 😉`,
        hint:`Pour vérifier que ça a marché : sur ta Page Facebook, dans « éléments connectés », ton compte Instagram apparaît. Le courant passe !`,
        btns:[{label:"Ma Page est reliée ✓", cls:"green", points:20}]},
