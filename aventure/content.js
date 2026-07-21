@@ -107,15 +107,14 @@ const FORMATION = {
        title:`Passe en <span class="g">compte professionnel</span>`,
        msg:`Instagram crée toujours un compte normal au début — on le transforme ici. Sur ton téléphone 👇`,
        slider:[
-         {src:"shots/instapro/1.png", cap:"Va sur ton profil et appuie sur les 3 traits ☰ (en haut à droite)."},
-         {src:"shots/instapro/2.png", cap:"Appuie sur « Paramètres et confidentialité »."},
-         {src:"shots/instapro/3.png", cap:"Dans « Pour les professionnels », appuie sur « Type de compte et outils »."},
-         {src:"shots/instapro/4.png", cap:"Appuie sur « Passer à un compte professionnel »."},
-         {src:"shots/instapro/5.png", cap:"Choisis la catégorie qui décrit ton activité, puis « Passer à un profil professionnel »."},
-         {src:"shots/instapro/6.png", cap:"Vérifie tes coordonnées (elles seront publiques sur ton profil), puis « Suivant »."},
-         {src:"shots/instapro/7.png", cap:"Pour la Page Facebook : clique « Ignorer » — on la fera plus tard."},
-         {src:"shots/instapro/8.png", cap:"E-mails promotionnels : tu peux laisser activé, puis « Suivant »."},
-         {src:"shots/instapro/9.png", cap:"C'est fait ! Ton compte est professionnel. 🎉"}
+         {src:"shots/instapro/1.png", cap:"Ton profil → « Modifier le profil » → appuie sur « Passer à un compte professionnel »."},
+         {src:"shots/instapro/2.png", cap:"Lis les avantages, puis appuie sur « Suivant »."},
+         {src:"shots/instapro/3.png", cap:"Choisis la catégorie qui décrit ton activité, puis « Passer à un profil professionnel »."},
+         {src:"shots/instapro/4.png", cap:"Choisis « Creator » ou « Professionnel », puis « Suivant »."},
+         {src:"shots/instapro/5.png", cap:"Vérifie tes coordonnées (elles seront publiques), puis « Suivant »."},
+         {src:"shots/instapro/6.png", cap:"Pour la Page Facebook : appuie sur « Ignorer » — on la fera plus tard."},
+         {src:"shots/instapro/7.png", cap:"E-mails promotionnels : tu peux laisser, puis « Suivant »."},
+         {src:"shots/instapro/8.png", cap:"C'est fait ! Ton compte est professionnel. 🎉"}
        ],
        say:`S'il propose de connecter Facebook, choisis « Ignorer » — on le fera au bon moment.`,
        hint:`Sur PC cette option est souvent absente : fais-le dans l'appli mobile.`,
