@@ -60,7 +60,7 @@ const FORMATION = {
       {type:'action', emoji:"📨", kicker:"Mission · action",
        title:`Crée une adresse <span class="g">Gmail</span>`,
        msg:`Va sur gmail.com et clique « Créer un compte ». Avance avec les flèches et suis la main 👇`,
-       slider:["shots/gmail/1.png","shots/gmail/2.png","shots/gmail/3.png","shots/gmail/4.png","shots/gmail/5.png","shots/gmail/6.png","shots/gmail/7.png","shots/gmail/8.png","shots/gmail/9.png"],
+       slider:["shots/gmail/1.png","shots/gmail/2.png","shots/gmail/3.png","shots/gmail/4.png","shots/gmail/5.png","shots/gmail/6.png","shots/gmail/7.png","shots/gmail/8.png","shots/gmail/9.png","shots/gmail/10.png","shots/gmail/11.png"],
        say:`Note bien le mot de passe dans un carnet !`,
        hint:`Google demandera ton numéro pour t'envoyer un code — c'est normal.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
