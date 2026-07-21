@@ -154,8 +154,15 @@ const FORMATION = {
        btns:[{label:"✅ Oui", cls:"ghost", points:5, skip:1},{label:"❌ Non", cls:"ghost"}]},
       {type:'action', emoji:"🏢", kicker:"Mission · action",
        title:`Crée ton compte <span class="g">GitHub</span>`,
-       msg:`Va sur github.com et clique « Sign up ». La page est en anglais — suis la main 👇`,
-       shot:"shots/s-github.gif",
+       msg:`Sur ton ordinateur (github.com). La page est en anglais — suis la main 👇`,
+       slider:[
+         {src:"shots/github/1.png", cap:"Va sur github.com, écris ton e-mail et clique « Inscrivez-vous sur GitHub »."},
+         {src:"shots/github/2.png", cap:"Remplis : e-mail, mot de passe, pseudo (Username) et pays. Puis « Create account »."},
+         {src:"shots/github/3.png", cap:"GitHub demande un code : va voir tes e-mails (diapo suivante)."},
+         {src:"shots/github/4.png", cap:"Dans tes e-mails, note le code à 8 chiffres, puis reviens le taper."},
+         {src:"shots/github/5.png", cap:"Ton compte est créé ! Connecte-toi avec ton pseudo et ton mot de passe."},
+         {src:"shots/github/6.png", cap:"Bravo ! Ton compte GitHub est prêt. 🎉"}
+       ],
        say:`GitHub, c'est le bâtiment gratuit où vivront tes 3 robots.`,
        hint:`Email = e-mail · Password = mot de passe · Username = pseudo. GitHub t'envoie ensuite un code à 8 chiffres par email.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
