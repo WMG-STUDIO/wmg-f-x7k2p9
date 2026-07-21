@@ -44,6 +44,8 @@
   .slider{margin:4px 0 16px}
   .sld-stage{position:relative}
   .sld-stage img{margin:0}
+  .sld-cap{text-align:center;font-size:17px;font-weight:700;color:var(--ink-soft);line-height:1.45;margin:14px auto 4px;max-width:440px;min-height:48px}
+  .sld-step{display:inline-block;background:var(--gold);color:#fff;font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;margin-right:8px;vertical-align:middle}
   .sld-dots{display:flex;gap:6px;justify-content:center;margin:12px 0 8px;flex-wrap:wrap}
   .sld-dots i{width:9px;height:9px;border-radius:50%;background:var(--line);transition:.15s}
   .sld-dots i.on{background:var(--gold);transform:scale(1.25)}
@@ -221,7 +223,9 @@ function renderStep(){
   if(s.msg)inner+=`<p class="msg">${s.msg}</p>`;
   if(s.shot)inner+=`<img class="shot" src="${s.shot}" alt="capture d'écran annotée">`;
   if(s.slider){
-    inner+=`<div class="slider"><div class="sld-stage"><img class="shot" id="sldimg" src="${s.slider[0]}" alt="étape"></div>`
+    const it0 = (typeof s.slider[0]==='string')?{src:s.slider[0],cap:''}:s.slider[0];
+    inner+=`<div class="slider"><div class="sld-stage"><img class="shot" id="sldimg" src="${it0.src}" alt="étape"></div>`
+      +`<div class="sld-cap" id="sldcap"><span class="sld-step">Étape 1</span> ${it0.cap||''}</div>`
       +`<div class="sld-dots" id="slddots">`+s.slider.map((_,k)=>`<i class="${k===0?'on':''}"></i>`).join('')+`</div>`
       +`<div class="sld-ctrl"><button class="sld-b" id="sldprev" disabled>‹</button>`
       +`<span class="sld-count" id="sldcount">1 / ${s.slider.length}</span>`
@@ -238,9 +242,11 @@ function renderStep(){
   view.innerHTML=inner;
   if(s.slider){
     let i=0; const im=document.getElementById('sldimg'), ct=document.getElementById('sldcount'),
-      pv=document.getElementById('sldprev'), nx=document.getElementById('sldnext'),
-      dots=document.getElementById('slddots').children;
-    const upd=()=>{im.src=s.slider[i]; ct.textContent=(i+1)+' / '+s.slider.length;
+      cp=document.getElementById('sldcap'), pv=document.getElementById('sldprev'),
+      nx=document.getElementById('sldnext'), dots=document.getElementById('slddots').children;
+    const get=k=>(typeof s.slider[k]==='string')?{src:s.slider[k],cap:''}:s.slider[k];
+    const upd=()=>{const it=get(i); im.src=it.src; ct.textContent=(i+1)+' / '+s.slider.length;
+      cp.innerHTML=`<span class="sld-step">Étape ${i+1}</span> ${it.cap||''}`;
       pv.disabled=(i===0); nx.disabled=(i===s.slider.length-1);
       for(let k=0;k<dots.length;k++)dots[k].className=(k===i?'on':''); sPop();};
     pv.onclick=()=>{if(i>0){i--;upd();}};
