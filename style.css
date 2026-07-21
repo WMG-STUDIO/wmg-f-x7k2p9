@@ -20,6 +20,15 @@ body {
 .topbar .module-label { font-weight: 700; color: var(--gold-dark); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
 .topbar nav a { color: var(--cta); text-decoration: none; font-weight: 600; font-size: 15px; margin-left: 18px; }
 
+/* ---------- MOBILE : en-tête compact, lien "Sommaire" toujours visible ---------- */
+@media (max-width: 560px) {
+  .topbar { padding: 12px 16px; }
+  .topbar img { height: 32px; }
+  .topbar .module-label { display: none; } /* décoratif : on le retire pour laisser la place */
+  .topbar nav a { font-size: 14px; margin-left: 0; }
+  .page { padding: 32px 18px 72px; }
+}
+
 .page { max-width: 860px; margin: 0 auto; padding: 48px 24px 96px; }
 
 .badge {

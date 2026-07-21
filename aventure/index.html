@@ -92,6 +92,28 @@
   .confetti{position:fixed;top:-10px;font-size:20px;animation:fall 2.6s linear forwards;pointer-events:none;z-index:30}
   @keyframes fall{to{transform:translateY(108vh) rotate(380deg);opacity:.9}}
   .foot{text-align:center;color:var(--gray);font-size:11.5px;padding:0 0 12px}
+
+  /* ---------- MOBILE ---------- */
+  @media(max-width:560px){
+    .hud{padding:12px 14px;gap:10px}
+    .hud img{height:26px}
+    /* on réserve de la place en bas pour que la mascotte (fixée) ne cache jamais le bouton */
+    .stage{padding:4px 12px 118px}
+    .card{padding:28px 20px 24px;border-radius:22px}
+    .emoji{font-size:62px}
+    h1{font-size:23px}
+    p.msg{font-size:16px}
+    .btn{font-size:16px;padding:15px 18px}
+    /* l'éditeur embarqué : un peu plus court sur téléphone */
+    .embed iframe{height:min(62vh,520px)}
+    /* mascotte compacte */
+    .mascot{max-width:76vw;left:10px;bottom:10px;gap:8px}
+    .mascot .face{font-size:36px}
+    .bubble{font-size:12.5px;padding:9px 12px}
+    /* carte des chapitres */
+    .map h2{font-size:22px}
+    .chap{padding:13px 14px;gap:12px}
+  }
 </style>
 </head>
 <body>
