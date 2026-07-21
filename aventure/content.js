@@ -111,10 +111,11 @@ const FORMATION = {
          {src:"shots/instapro/2.png", cap:"Appuie sur « Paramètres et confidentialité »."},
          {src:"shots/instapro/3.png", cap:"Dans « Pour les professionnels », appuie sur « Type de compte et outils »."},
          {src:"shots/instapro/4.png", cap:"Appuie sur « Passer à un compte professionnel »."},
-         {src:"shots/instapro/5.png", cap:"Lis l'explication, puis appuie sur « Continuer »."},
-         {src:"shots/instapro/6.png", cap:"Choisis la catégorie qui correspond à ton activité."},
-         {src:"shots/instapro/7.png", cap:"Choisis « Entreprise »."},
-         {src:"shots/instapro/8.png", cap:"C'est bon ! Ton compte est passé en professionnel. 🎉"}
+         {src:"shots/instapro/5.png", cap:"Choisis la catégorie qui décrit ton activité, puis « Passer à un profil professionnel »."},
+         {src:"shots/instapro/6.png", cap:"Vérifie tes coordonnées (elles seront publiques sur ton profil), puis « Suivant »."},
+         {src:"shots/instapro/7.png", cap:"Pour la Page Facebook : clique « Ignorer » — on la fera plus tard."},
+         {src:"shots/instapro/8.png", cap:"E-mails promotionnels : tu peux laisser activé, puis « Suivant »."},
+         {src:"shots/instapro/9.png", cap:"C'est fait ! Ton compte est professionnel. 🎉"}
        ],
        say:`S'il propose de connecter Facebook, choisis « Ignorer » — on le fera au bon moment.`,
        hint:`Sur PC cette option est souvent absente : fais-le dans l'appli mobile.`,
