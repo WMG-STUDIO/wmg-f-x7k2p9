@@ -300,7 +300,10 @@ const FORMATION = {
        btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
       {type:'action', emoji:"📷", kicker:"Guichet 3 · 🔑 clé 1/2",
        title:`<span class="g">Revendique</span> ton Instagram`,
-       msg:`Business Manager → ⚙️ Paramètres → Comptes → Comptes Instagram → « Ajouter » → connecte @toncompte.`,
+       msg:`Business Manager → Comptes → Comptes Instagram → « Ajouter » → connecte ton compte 👇`,
+       slider:[
+         {src:"shots/igclaim/1.png", cap:"Ton compte apparaît dans « Comptes Instagram ». Note bien le long numéro à côté de « ID » : c'est ta 1re clé, tu en auras besoin plus tard !"}
+       ],
        say:`⚠️ Note bien le long numéro à 17 chiffres qui s'affiche — c'est ta 1re clé !`,
        btns:[{label:"Compte revendiqué + numéro noté ✓", cls:"green", points:15}]},
       {type:'branch', emoji:"🤖", kicker:"Vérification",
@@ -311,8 +314,20 @@ const FORMATION = {
        btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
       {type:'action', emoji:"🤖", kicker:"Guichet 4",
        title:`Embauche ton <span class="g">facteur</span>`,
-       msg:`⚙️ → Utilisateurs système → « Ajouter » → nom « Facteur » → puis « Affecter des éléments » : ton compte Instagram ET ton app.`,
+       msg:`Dans le Business Manager → Utilisateurs système. Avance avec les flèches 👇`,
+       slider:[
+         {src:"shots/facteur/1.png", cap:"Va dans « Utilisateur(ice)s système » et clique sur « Ajouter »."},
+         {src:"shots/facteur/2.png", cap:"Meta demande d'accepter une politique : clique « J'accepte »."},
+         {src:"shots/facteur/3.png", cap:"Écris le nom de ton robot : « Facteur »."},
+         {src:"shots/facteur/4.png", cap:"⚠️ Choisis le rôle « Admin » (pas Employee !), puis « Create system user »."},
+         {src:"shots/facteur/5.png", cap:"Bravo ! Ton Facteur est créé, avec l'accès Admin."},
+         {src:"shots/facteur/6.png", cap:"Clique « Affecter des éléments », puis choisis « Comptes Instagram »."},
+         {src:"shots/facteur/7.png", cap:"Coche ton compte, puis active « Contenu » et « Activité de la communauté »."},
+         {src:"shots/facteur/8.png", cap:"Valide avec « Affecter des éléments », puis « Terminé »."},
+         {src:"shots/facteur/9.png", cap:"Vérifie : ton Instagram apparaît avec les 2 autorisations. 🎉"}
+       ],
        say:`C'est ton employé-robot officiel chez Meta.`,
+       hint:`Le rôle « Admin » est important : avec « Employee », le token n'aura pas assez de droits.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
       {type:'story', emoji:"📄", kicker:"L'étape magique",
        title:`La <span class="g">Page Facebook</span>, l'adaptateur`,
