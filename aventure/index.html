@@ -41,6 +41,17 @@
   .embed{position:relative;width:100%;border-radius:18px;overflow:hidden;border:2px solid var(--gold);margin:2px 0 18px;box-shadow:0 18px 40px rgba(212,175,55,.22)}
   .embed iframe{width:100%;height:min(72vh,640px);border:0;display:block;background:#fff}
   .embed .tag{position:absolute;top:10px;left:10px;background:var(--gold);color:#fff;font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:1px;padding:5px 11px;border-radius:20px;z-index:2;box-shadow:0 4px 12px rgba(212,175,55,.4)}
+  .slider{margin:4px 0 16px}
+  .sld-stage{position:relative}
+  .sld-stage img{margin:0}
+  .sld-dots{display:flex;gap:6px;justify-content:center;margin:12px 0 8px;flex-wrap:wrap}
+  .sld-dots i{width:9px;height:9px;border-radius:50%;background:var(--line);transition:.15s}
+  .sld-dots i.on{background:var(--gold);transform:scale(1.25)}
+  .sld-ctrl{display:flex;align-items:center;justify-content:center;gap:16px}
+  .sld-b{width:46px;height:46px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:24px;line-height:1;cursor:pointer;color:var(--ink);font-weight:800}
+  .sld-b:active{transform:scale(.94)}
+  .sld-b:disabled{opacity:.35;cursor:default}
+  .sld-count{font-weight:800;color:var(--gray);font-size:14px;min-width:54px;text-align:center}
   .btns{display:flex;flex-direction:column;gap:11px}
   .btn{border:none;cursor:pointer;font-family:'Montserrat';font-weight:800;font-size:17px;padding:16px 20px;border-radius:15px;transition:transform .1s}
   .btn:active{transform:scale(.97)}
@@ -209,6 +220,13 @@ function renderStep(){
   if(s.flow)inner+=flowHTML();
   if(s.msg)inner+=`<p class="msg">${s.msg}</p>`;
   if(s.shot)inner+=`<img class="shot" src="${s.shot}" alt="capture d'écran annotée">`;
+  if(s.slider){
+    inner+=`<div class="slider"><div class="sld-stage"><img class="shot" id="sldimg" src="${s.slider[0]}" alt="étape"></div>`
+      +`<div class="sld-dots" id="slddots">`+s.slider.map((_,k)=>`<i class="${k===0?'on':''}"></i>`).join('')+`</div>`
+      +`<div class="sld-ctrl"><button class="sld-b" id="sldprev" disabled>‹</button>`
+      +`<span class="sld-count" id="sldcount">1 / ${s.slider.length}</span>`
+      +`<button class="sld-b" id="sldnext">›</button></div></div>`;
+  }
   if(s.embed)inner+=`<div class="embed"><span class="tag">EN DIRECT · DANS LE SITE</span><iframe src="${s.embed}" loading="lazy"></iframe></div>`;
   inner+=`<div class="btns">`;
   const btns = s.btns || [{label:s.next||'Suivant →',cls:'primary'}];
@@ -218,6 +236,16 @@ function renderStep(){
   if(S.step>0)inner+=`<button class="prev" id="prev">← précédent</button>`;
   inner+=`</div>`;
   view.innerHTML=inner;
+  if(s.slider){
+    let i=0; const im=document.getElementById('sldimg'), ct=document.getElementById('sldcount'),
+      pv=document.getElementById('sldprev'), nx=document.getElementById('sldnext'),
+      dots=document.getElementById('slddots').children;
+    const upd=()=>{im.src=s.slider[i]; ct.textContent=(i+1)+' / '+s.slider.length;
+      pv.disabled=(i===0); nx.disabled=(i===s.slider.length-1);
+      for(let k=0;k<dots.length;k++)dots[k].className=(k===i?'on':''); sPop();};
+    pv.onclick=()=>{if(i>0){i--;upd();}};
+    nx.onclick=()=>{if(i<s.slider.length-1){i++;upd();}};
+  }
   view.querySelectorAll('.btn').forEach(btn=>{btn.onclick=()=>{
     const b=btns[+btn.dataset.k];
     // points
