@@ -431,7 +431,8 @@ const FORMATION = {
        title:`<span class="g">Teste</span> tes clés`,
        msg:`Rien à installer : Meta a un outil en ligne. Va sur <b>developers.facebook.com/tools/debug/accesstoken</b> 👇`,
        slider:[
-         {src:"shots/token/14.png", cap:"Colle ton token dans le champ, puis clique « Déboguer »."}
+         {src:"shots/token/14.png", cap:"Colle ton token dans le champ, puis clique « Déboguer »."},
+         {src:"shots/token/15.png", cap:"✅ Vérifie 3 choses : « Expiration : Jamais » · « Valide : Vrai » · et tes autorisations dans « Portées ». Si c'est bon, ton usine a toutes ses clés !"}
        ],
        say:`Si tu vois « Jamais » et tes 5 autorisations : tu as réussi le plus dur. Chapeau !`,
        hint:`Ce qu'il faut vérifier : « Application » = ton app · « Expire le » = ⚠️ JAMAIS · les 5 autorisations listées. Si l'expiration affiche une date, refais un token en choisissant « Jamais ».`,
