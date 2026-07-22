@@ -455,7 +455,12 @@ const FORMATION = {
        btns:[{label:"Allons-y", cls:"primary"}]},
       {type:'action', emoji:"📁", kicker:"Mission · action",
        title:`Crée un dépôt public <span class="g">« mes-images »</span>`,
-       msg:`Sur github.com → bouton « + » → « New repository » → nom « mes-images » → coche « Public » et « Add a README » → Create.`,
+       msg:`Sur github.com → bouton « + » → « New repository ». Avance avec les flèches 👇`,
+       slider:[
+         {src:"shots/ghimages/1.png", cap:"Écris le nom : « mes-images ». Un petit ✓ vert confirme que le nom est libre."},
+         {src:"shots/ghimages/2.png", cap:"Vérifie « Public », et active « Add README » (le bouton passe sur On). Puis descends et clique « Create repository »."},
+         {src:"shots/ghimages/3.png", cap:"Bravo ! Ton dépôt « mes-images » est créé. 🎉"}
+       ],
        say:`« Dépôt » = un dossier hébergé sur internet. Rien de plus.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
       {type:'story', emoji:"👁️", kicker:"Public, mais sans danger",
@@ -465,7 +470,14 @@ const FORMATION = {
        btns:[{label:"Rassuré·e", cls:"primary"}]},
       {type:'action', emoji:"🔗", kicker:"Petit test",
        title:`Teste une <span class="g">adresse d'image</span>`,
-       msg:`Dans mes-images → « Add file » → glisse une image → « Commit ». Clique dessus → bouton « Raw » : l'image s'ouvre seule, avec une adresse. C'est ça qu'Instagram viendra chercher.`,
+       msg:`Dans mes-images → « Add file » → « Upload files ». Avance avec les flèches 👇`,
+       slider:[
+         {src:"shots/ghimages/4.png", cap:"Glisse une image (n'importe laquelle) dans la grande zone."},
+         {src:"shots/ghimages/5.png", cap:"Ton image apparaît dans la liste. Descends et clique le bouton vert « Commit changes »."},
+         {src:"shots/ghimages/6.png", cap:"Ton image est maintenant dans le dépôt : clique sur son nom."},
+         {src:"shots/ghimages/7.png", cap:"En haut à droite, le petit bouton de téléchargement ⬇ donne l'adresse directe de ton image (le « Raw »)."},
+         {src:"shots/ghimages/8.png", cap:"À cette adresse, l'image s'ouvre toute seule, sans connexion. C'est ça qu'Instagram viendra chercher ! 🎉"}
+       ],
        say:`Ouvre cette adresse en navigation privée : elle s'affiche sans connexion. Parfait !`,
        btns:[{label:"L'image s'ouvre ✓", cls:"green", points:10}]},
       {type:'story', emoji:"✅", kicker:"Récap",
