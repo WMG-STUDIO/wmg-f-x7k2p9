@@ -169,6 +169,11 @@ const FORMATION = {
       {type:'action', emoji:"🔔", kicker:"Dernière clé",
        title:`Installe l'<span class="g">app GitHub</span> sur ton téléphone`,
        msg:`C'est ta télécommande : c'est là que tu diras « oui, publie ! ».`,
+       slider:[
+         {src:"shots/ghmobile/1.png", cap:"Dans le magasin d'applis de ton téléphone, cherche « GitHub » et appuie sur « Obtenir » (ou « Installer »)."},
+         {src:"shots/ghmobile/2.png", cap:"Ouvre l'application et appuie sur « Se connecter » avec le compte GitHub que tu viens de créer."},
+         {src:"shots/ghmobile/3.png", cap:"Quand le téléphone demande les notifications : appuie sur « Autoriser ». C'est le Messager — sans ça, tu ne sauras pas qu'un carrousel t'attend !"}
+       ],
        say:`Quand elle demande les notifications, dis OUI — c'est le Messager !`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
       {type:'story', emoji:"🎯", kicker:"Récap",
@@ -196,6 +201,14 @@ const FORMATION = {
        embed:"editeur.html",
        title:`Personnalise ta <span class="g">slide</span>`,
        msg:`Change tes 4 couleurs, mets ton @ Instagram et ton logo. La slide à droite se met à jour toute seule. Quand ça te plaît : « Valider » puis « Télécharger ».`,
+       slider:[
+         {src:"shots/editeur/1.png", cap:"Le studio s'ouvre dans la page : à gauche tes réglages, à droite l'aperçu de ta pub qui se transforme en direct."},
+         {src:"shots/editeur/2.png", cap:"Le plus rapide : clique une « ambiance » toute prête. Tes 4 couleurs changent d'un coup."},
+         {src:"shots/editeur/3.png", cap:"Change le Fond, le Texte, Ta couleur et le Bouton. À droite, ta pub se met à jour immédiatement."},
+         {src:"shots/editeur/4.png", cap:"Écris ton nom Instagram, ton site et le titre de ta pub. Tout apparaît aussitôt dans l'aperçu."},
+         {src:"shots/editeur/5.png", cap:"Clique la zone en pointillés pour choisir ton logo (PNG). Pas de logo ? Garde celui d'exemple, tu changeras plus tard."},
+         {src:"shots/editeur/6.png", cap:"Quand ça te plaît : « ✓ Valider mon kit », puis le bouton bleu « Télécharger » se débloque. Ton kit arrive dans tes téléchargements. 🎉"}
+       ],
        say:`Prends ton temps, essaie des couleurs. Rien ne peut casser !`,
        hint:`Astuce : reprends les couleurs de ton logo ou de ton site pour rester cohérent.`,
        btns:[{label:"Mon kit est téléchargé ✓", cls:"green", points:20}]},
@@ -505,6 +518,11 @@ const FORMATION = {
        embed:"editeur.html",
        title:`Écris ton <span class="g">premier carrousel</span>`,
        msg:`Reprends ton studio : garde tes couleurs, et remplis les textes de tes slides. Regarde l'aperçu se remplir en direct. Quand c'est bon : « Valider » puis « Télécharger ».`,
+       slider:[
+         {src:"shots/editeur/4.png", cap:"Écris ton nom Instagram, ton site et le titre de ta pub. Tout apparaît aussitôt dans l'aperçu."},
+         {src:"shots/editeur/5.png", cap:"Clique la zone en pointillés pour choisir ton logo (PNG). Pas de logo ? Garde celui d'exemple, tu changeras plus tard."},
+         {src:"shots/editeur/6.png", cap:"Quand ça te plaît : « ✓ Valider mon kit », puis le bouton bleu « Télécharger » se débloque. Ton kit arrive dans tes téléchargements. 🎉"}
+       ],
        say:`C'est le même studio qu'au chapitre 2 — tu connais déjà !`,
        hint:`Pas d'idée ? Reprends l'exemple fourni et change juste quelques mots pour t'entraîner.`,
        btns:[{label:"Mon carrousel est prêt ✓", cls:"green", points:20}]},
@@ -608,6 +626,10 @@ const FORMATION = {
       {type:'action', emoji:"✍️", kicker:"Mission · action",
        title:`Crée <span class="g">TON</span> premier carrousel`,
        msg:`Duplique le dossier d'exemple, renomme-le, et change juste les textes de chaque slide (comme dans un formulaire). Dépose-le dans « mon-usine ». C'est tout !`,
+       slider:[
+         {src:"shots/editeur/4.png", cap:"Écris ton nom Instagram, ton site et le titre de ta pub. Tout apparaît aussitôt dans l'aperçu."},
+         {src:"shots/editeur/6.png", cap:"Quand ça te plaît : « ✓ Valider mon kit », puis le bouton bleu « Télécharger » se débloque. Ton kit arrive dans tes téléchargements. 🎉"}
+       ],
        say:`Tu fournis les idées ; l'usine fait le design et la publication.`,
        btns:[{label:"J'ai créé mon carrousel ✓", cls:"green", points:15}]},
       {type:'story', emoji:"💡", kicker:"L'astuce qui va vite",
