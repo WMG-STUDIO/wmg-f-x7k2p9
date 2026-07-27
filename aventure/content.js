@@ -537,21 +537,38 @@ const FORMATION = {
       {type:'action', emoji:"🏢", kicker:"Mission · action",
        title:`Crée le dépôt privé <span class="g">« mon-usine »</span>`,
        msg:`github.com → « + » → New repository → nom « mon-usine » → coche « Private » 🔒 → Create.`,
+       slider:[
+         {src:"shots/usine/1.png", cap:"Sur github.com → « + » → « New repository ». Nomme-le « mon-usine », puis ouvre le menu « Public » et choisis « Private »."},
+         {src:"shots/usine/2.png", cap:"Le bouton affiche maintenant « Private » avec un cadenas 🔒. Active aussi « Add README », puis clique « Create repository »."},
+         {src:"shots/usine/3.png", cap:"Ton dépôt « mon-usine » est créé, avec le badge « Private » : personne d'autre que toi ne peut le voir. 🎉"}
+       ],
        say:`Privé : ta stratégie de contenu ne regarde personne.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
       {type:'action', emoji:"📤", kicker:"Mission · action",
        title:`Dépose les <span class="g">fichiers du kit</span>`,
        msg:`Dans « mon-usine » → Add file → Upload → glisse le kit que tu as téléchargé (celui de l'éditeur) → Commit.`,
+       slider:[
+         {src:"shots/usine/4.png", cap:"Dans « Add file » → « Upload files », glisse tout le contenu de ton kit, puis clique « Commit changes »."}
+       ],
        say:`Ce kit ne contient aucune clé — tes clés, on les met juste après, dans le coffre.`,
        btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
       {type:'action', emoji:"🔒", kicker:"Le coffre-fort",
        title:`Range tes clés dans les <span class="g">secrets</span>`,
        msg:`mon-usine → Settings → Secrets and variables → Actions → crée tes secrets (token, identifiant, étagère…), un par un, avec les noms exacts fournis.`,
+       slider:[
+         {src:"shots/usine/5.png", cap:"Va dans Settings → Secrets and variables → Actions. C'est le coffre-fort de ton usine : clique « New repository secret »."},
+         {src:"shots/usine/6.png", cap:"Écris le nom EXACT du secret (par ex. IG_ACCESS_TOKEN), colle sa valeur en dessous, puis « Add secret ». Recommence pour chaque clé."}
+       ],
        say:`Un coffre chiffré : les robots s'en servent, personne ne peut le relire.`,
        btns:[{label:"Secrets créés ✓", cls:"green", points:15}]},
       {type:'action', emoji:"🤖", kicker:"Mission · action",
        title:`Réveille tes <span class="g">robots</span>`,
        msg:`Onglet « Actions » de ton dépôt → si on te demande d'activer les workflows, clique. Puis lance un test : « Préparer le prochain carrousel » → Run workflow.`,
+       slider:[
+         {src:"shots/usine/7.png", cap:"Onglet « Actions » → choisis « Préparer le prochain carrousel ». Le bouton « Run workflow » lance le robot à la demande."},
+         {src:"shots/usine/8.png", cap:"Un petit menu s'ouvre : clique le bouton vert « Run workflow » pour un premier essai."},
+         {src:"shots/usine/9.png", cap:"Le rond jaune devient une coche verte ✅ : ton robot a tourné tout seul sur un ordinateur de GitHub."}
+       ],
        say:`Rond jaune → coche verte = ton robot a travaillé tout seul !`,
        btns:[{label:"Le test passe au vert ✓", cls:"green", points:15}]},
       {type:'story', emoji:"📱", kicker:"Ding !",
@@ -562,6 +579,9 @@ const FORMATION = {
       {type:'action', emoji:"✅", kicker:"La magie",
        title:`Écris <span class="g">/publier</span> dans le ticket`,
        msg:`En bas du ticket, commente : /publier → envoie. 2 minutes plus tard : « ✅ Publié ! ». Et ton ordinateur est ÉTEINT.`,
+       slider:[
+         {src:"shots/usine/10.png", cap:"Quand un carrousel est prêt, un ticket arrive sur ton téléphone. Pour publier : écris « /publier » en commentaire. Pour annuler : « /annuler »."}
+       ],
        say:`Un ordinateur gratuit de GitHub vient de publier pour toi, puis s'est éteint. 🤯`,
        btns:[{label:"C'est publié, ordi éteint ✓", cls:"green", points:20}]},
       {type:'story', emoji:"🏭", kicker:"Énorme",
