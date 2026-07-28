@@ -5,7 +5,8 @@ const FORMATION = {
 
   // ---------- CHAPITRE 0 : Bienvenue ----------
   { id:0, title:"Bienvenue dans ton usine", sub:"Rencontre ton équipe", emoji:"🏭",
-    ready:true, badge:{emoji:"🚀", name:"Aventurier·e", bonus:50},
+    ready:true, duree:"~5 min", jalon:"Tu sais comment marche ton usine",
+    badge:{emoji:"🚀", name:"Aventurier·e", bonus:50},
     steps:[
       {type:'story', emoji:"🤖", wiggle:true, kicker:"Ton aventure commence",
        title:`Salut ! Moi c'est <span class="g">Nono</span> 🤖`,
@@ -46,7 +47,8 @@ const FORMATION = {
 
   // ---------- CHAPITRE 1 : Tes clés ----------
   { id:1, title:"Tes clés", sub:"Créer (ou retrouver) tes comptes", emoji:"🔑",
-    ready:true, badge:{emoji:"🗝️", name:"Gardien·ne des clés", bonus:60},
+    ready:true, duree:"~25 min", jalon:"Tes 4 comptes sont créés",
+    badge:{emoji:"🗝️", name:"Gardien·ne des clés", bonus:60},
     steps:[
       {type:'story', emoji:"🔑", wiggle:true, kicker:"Chapitre 1",
        title:`Il te faut quelques <span class="g">clés</span>`,
@@ -185,7 +187,8 @@ const FORMATION = {
 
   // ---------- CHAPITRE 2 : Ton style ----------
   { id:2, title:"Ton style", sub:"Tes couleurs, ton logo, tes slides", emoji:"🎨",
-    ready:true, badge:{emoji:"🖌️", name:"Artiste", bonus:55},
+    ready:true, duree:"~10 min", jalon:"Ton kit est à tes couleurs",
+    badge:{emoji:"🖌️", name:"Artiste", bonus:55},
     steps:[
       {type:'story', emoji:"🎨", wiggle:true, kicker:"Chapitre 2",
        title:`On <span class="g">habille</span> ton usine`,
@@ -224,27 +227,25 @@ const FORMATION = {
        btns:[{label:"Terminer le chapitre 🏆", cls:"green"}]},
     ]},
 
-  // ---------- CHAPITRE 3 : Les clés magiques de Meta ----------
-  { id:3, title:"Les clés magiques de Meta", sub:"Le sésame qui publie pour toi", emoji:"🗝️",
-    ready:true, badge:{emoji:"🔓", name:"Passe-partout", bonus:80},
+    // ---------- CHAPITRE 3 : Tes papiers Meta ----------
+  { id:3, title:"Tes papiers Meta", sub:"Compte développeur, app, portefeuille", emoji:"🏛️",
+    ready:true, duree:"~15 min", jalon:"Meta te reconnaît comme développeur",
+    badge:{emoji:"📋", name:"Enregistré·e", bonus:60},
     steps:[
       {type:'story', emoji:"🏛️", wiggle:true, kicker:"Chapitre 3 · le grand boss",
        title:`Les <span class="g">autorisations</span> de Meta`,
        msg:`C'est LE chapitre que tout le monde rate. Mais pas toi : je reste avec toi à chaque guichet.`,
        say:`C'est de l'administratif — pas difficile, juste précis. Respire 😊`,
-       btns:[{label:"Je suis prêt·e", cls:"primary"}]},
-      {type:'story', emoji:"⚠️", kicker:"Le piège à connaître",
+       btns:[{label:"Je suis prêt·e", cls:"primary"}]},      {type:'story', emoji:"⚠️", kicker:"Le piège à connaître",
        title:`Ignore le <span class="g">bouton fantôme</span>`,
        msg:`Une page de Meta promet un bouton « Générer un token » qui n'apparaît jamais. Des gens y perdent des heures. Nous, on passe par la bonne porte : le Business Manager.`,
        say:`Si tu tombes sur cette page piège : ferme-la, reviens ici.`,
-       btns:[{label:"Noté !", cls:"primary"}]},
-      {type:'branch', emoji:"👤", kicker:"Tout premier guichet",
+       btns:[{label:"Noté !", cls:"primary"}]},      {type:'branch', emoji:"👤", kicker:"Tout premier guichet",
        title:`As-tu déjà un compte <span class="g">développeur</span> Meta ?`,
        msg:`C'est le compte qui te donne accès à developers.facebook.com. Il est gratuit.`,
        say:`Presque personne ne l'a — c'est la toute première porte à ouvrir.`,
        hint:`Pour vérifier : va sur developers.facebook.com. Si tu vois « Applications » et ton profil, tu en as déjà un.`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"👤", kicker:"Guichet 0",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"👤", kicker:"Guichet 0",
        title:`Crée ton compte <span class="g">développeur</span>`,
        msg:`Sur ton ordinateur (developers.facebook.com). Avance avec les flèches 👇`,
        slider:[
@@ -258,14 +259,12 @@ const FORMATION = {
        ],
        say:`Cette porte-là, une fois ouverte, tu ne la refermes plus 😊`,
        hint:`Meta enverra un code par SMS sur ton téléphone — c'est normal.`,
-       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
-      {type:'branch', emoji:"📋", kicker:"Avant de la créer",
+       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},      {type:'branch', emoji:"📋", kicker:"Avant de la créer",
        title:`As-tu déjà créé une <span class="g">app</span> chez Meta ?`,
        msg:`C'est le « dossier officiel » de ton projet sur developers.facebook.com.`,
        say:`La plupart des gens n'en ont pas — c'est tout à fait normal.`,
        hint:`Pour vérifier : developers.facebook.com → « Mes apps ». Si une app apparaît, tu en as déjà une.`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"📋", kicker:"Guichet 1",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"📋", kicker:"Guichet 1",
        title:`Crée ton <span class="g">app Meta</span>`,
        msg:`Sur developers.facebook.com → « Créer une app ». Avance avec les flèches 👇`,
        slider:[
@@ -282,14 +281,12 @@ const FORMATION = {
        ],
        say:`C'est ton dossier officiel à la mairie Meta.`,
        hint:`Deux pièges : l'option Instagram est cachée (filtre « Tout »), et Meta redemande ton mot de passe à la fin.`,
-       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
-      {type:'branch', emoji:"🗄️", kicker:"Avant de le créer",
+       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},      {type:'branch', emoji:"🗄️", kicker:"Avant de le créer",
        title:`As-tu déjà un <span class="g">portefeuille business</span> ?`,
        msg:`C'est le classeur qui regroupe tout ce qui t'appartient chez Meta.`,
        say:`Beaucoup de gens n'en ont jamais entendu parler — pas de souci.`,
        hint:`Pour vérifier : va sur business.facebook.com. Si un compte s'ouvre à ton nom, tu en as déjà un.`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"🗄️", kicker:"Guichet 2",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"🗄️", kicker:"Guichet 2",
        title:`Crée ton <span class="g">portefeuille business</span>`,
        msg:`Sur business.facebook.com. Avance avec les flèches 👇`,
        slider:[
@@ -298,14 +295,19 @@ const FORMATION = {
        ],
        say:`C'est le classeur qui regroupe tout ce qui t'appartient chez Meta.`,
        hint:`Le nom doit correspondre au nom public de ton entreprise — il sera visible sur Meta.`,
-       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
+       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},    ]},
+
+  // ---------- CHAPITRE 7 : Ton facteur ----------
+  { id:4, title:"Ton facteur", sub:"Sécurité, revendication, robot employé", emoji:"🤖",
+    ready:true, duree:"~12 min", jalon:"Ton facteur est embauché chez Meta",
+    badge:{emoji:"🎖️", name:"Recruteur·se", bonus:60},
+    steps:[
       {type:'branch', emoji:"🔐", kicker:"Vérification",
        title:`La <span class="g">double sécurité</span> est-elle déjà activée ?`,
        msg:`Facebook te demande un code par SMS quand tu te connectes sur un nouvel appareil ?`,
        say:`Meta l'exige pour confier des clés d'automatisation.`,
        hint:`Pour vérifier : Facebook → Paramètres → Sécurité → « Authentification à deux facteurs ».`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"🔐", kicker:"Guichet 2 bis",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"🔐", kicker:"Guichet 2 bis",
        title:`Active la <span class="g">double sécurité</span>`,
        msg:`Sur ton ordinateur, dans l'Espace Comptes Meta. Avance avec les flèches 👇`,
        slider:[
@@ -319,28 +321,24 @@ const FORMATION = {
        ],
        say:`Meta l'exige pour confier des clés d'automatisation. Logique : ce sont les clés du camion.`,
        hint:`⚠️ Ne donne JAMAIS ton code SMS à quelqu'un — même à un « support ». C'est l'arnaque n°1.`,
-       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
-      {type:'branch', emoji:"📷", kicker:"Vérification",
+       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},      {type:'branch', emoji:"📷", kicker:"Vérification",
        title:`Ton Instagram est-il déjà dans ton <span class="g">Business Manager</span> ?`,
        msg:`Il faut « revendiquer » ton compte pour que Meta te laisse publier dessus.`,
        say:`⚠️ C'est ici qu'on récupère ton numéro à 17 chiffres — ne saute que si tu l'as déjà noté !`,
        hint:`Pour vérifier : Business Manager → ⚙️ Paramètres → Comptes → Comptes Instagram.`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"📷", kicker:"Guichet 3 · 🔑 clé 1/2",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"📷", kicker:"Guichet 3 · 🔑 clé 1/2",
        title:`<span class="g">Revendique</span> ton Instagram`,
        msg:`Business Manager → Comptes → Comptes Instagram → « Ajouter » → connecte ton compte 👇`,
        slider:[
          {src:"shots/igclaim/1.png", cap:"Ton compte apparaît dans « Comptes Instagram ». Note bien le long numéro à côté de « ID » : c'est ta 1re clé, tu en auras besoin plus tard !"}
        ],
        say:`⚠️ Note bien le long numéro à 17 chiffres qui s'affiche — c'est ta 1re clé !`,
-       btns:[{label:"Compte revendiqué + numéro noté ✓", cls:"green", points:15}]},
-      {type:'branch', emoji:"🤖", kicker:"Vérification",
+       btns:[{label:"Compte revendiqué + numéro noté ✓", cls:"green", points:15}]},      {type:'branch', emoji:"🤖", kicker:"Vérification",
        title:`As-tu déjà un <span class="g">utilisateur système</span> ?`,
        msg:`C'est ton employé-robot officiel chez Meta — on l'appellera « Facteur ».`,
        say:`Si tu ne sais pas ce que c'est, c'est que tu n'en as pas 😄`,
        hint:`Pour vérifier : Business Manager → ⚙️ → Utilisateurs système.`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"🤖", kicker:"Guichet 4",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"🤖", kicker:"Guichet 4",
        title:`Embauche ton <span class="g">facteur</span>`,
        msg:`Dans le Business Manager → Utilisateurs système. Avance avec les flèches 👇`,
        slider:[
@@ -356,19 +354,23 @@ const FORMATION = {
        ],
        say:`C'est ton employé-robot officiel chez Meta.`,
        hint:`Le rôle « Admin » est important : avec « Employee », le token n'aura pas assez de droits.`,
-       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},
+       btns:[{label:"C'est fait ✓", cls:"green", points:10}]},    ]},
+
+  // ---------- CHAPITRE 8 : La Page et le branchement ----------
+  { id:5, title:"La Page et le branchement", sub:"Créer la Page, la relier à Instagram", emoji:"🔗",
+    ready:true, duree:"~15 min", jalon:"Ta Page est reliée à ton Instagram",
+    badge:{emoji:"⚡", name:"Électricien·ne", bonus:70},
+    steps:[
       {type:'story', emoji:"📄", kicker:"L'étape magique",
        title:`La <span class="g">Page Facebook</span>, l'adaptateur`,
        msg:`Meta oblige à passer par une Page Facebook (qui restera vide). Sans elle, le facteur reste à la porte.`,
        say:`C'est LA pièce que tout le monde oublie. Toi, tu la mets 😉`,
-       btns:[{label:"Voyons ça", cls:"primary"}]},
-      {type:'branch', emoji:"📄", kicker:"Avant de la créer",
+       btns:[{label:"Voyons ça", cls:"primary"}]},      {type:'branch', emoji:"📄", kicker:"Avant de la créer",
        title:`As-tu déjà une <span class="g">Page Facebook</span> ?`,
        msg:`Tu l'as peut-être créée en même temps que ton compte Facebook, au Chapitre 1.`,
        say:`Si tu en as déjà une, inutile d'en refaire une — on saute l'étape 😉`,
        hint:`Pour vérifier : sur facebook.com, ouvre le menu → « Pages ». Si une Page à ton nom apparaît, tu en as déjà une.`,
-       btns:[{label:"✅ Oui, j'en ai déjà une", cls:"ghost", points:5, skip:1},{label:"❌ Non, pas encore", cls:"ghost"}]},
-      {type:'action', emoji:"🔗", kicker:"Guichet 5",
+       btns:[{label:"✅ Oui, j'en ai déjà une", cls:"ghost", points:5, skip:1},{label:"❌ Non, pas encore", cls:"ghost"}]},      {type:'action', emoji:"🔗", kicker:"Guichet 5",
        title:`Crée ta <span class="g">Page Facebook</span>`,
        msg:`Sur facebook.com. Avance avec les flèches 👇`,
        slider:[
@@ -386,18 +388,15 @@ const FORMATION = {
          {src:"shots/facebook/18.png", cap:"Bravo ! Ta Page Facebook est prête. 🎉"}
        ],
        say:`Ta Page est prête. Il reste LE branchement le plus important 👇`,
-       btns:[{label:"Page créée ✓", cls:"green", points:15}]},
-      {type:'story', emoji:"⚡", wiggle:true, kicker:"L'étape que 90 % ratent",
+       btns:[{label:"Page créée ✓", cls:"green", points:15}]},      {type:'story', emoji:"⚡", wiggle:true, kicker:"L'étape que 90 % ratent",
        title:`Le <span class="g">branchement</span> Page ↔ Instagram`,
        msg:`Ta Page et ton Instagram existent, mais ils ne se connaissent pas encore. Tant qu'ils ne sont pas reliés, le facteur reste à la porte : Meta refuse de publier.`,
        say:`C'est LA pièce oubliée n°1. On la met maintenant.`,
-       btns:[{label:"Comment on fait ?", cls:"primary"}]},
-      {type:'branch', emoji:"⚡", kicker:"Vérification",
+       btns:[{label:"Comment on fait ?", cls:"primary"}]},      {type:'branch', emoji:"⚡", kicker:"Vérification",
        title:`Ta Page est-elle déjà <span class="g">reliée</span> à ton Instagram ?`,
        msg:`Sur ta Page Facebook → « éléments connectés », ton compte Instagram apparaît ?`,
        say:`Dans le doute, refais-le : ça ne casse rien, et c'est l'étape la plus importante.`,
-       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},
-      {type:'action', emoji:"🔗", kicker:"Guichet 5 bis · LE branchement",
+       btns:[{label:"✅ Oui, déjà fait", cls:"ghost", points:5, skip:1},{label:"❌ Non / je ne sais pas", cls:"ghost"}]},      {type:'action', emoji:"🔗", kicker:"Guichet 5 bis · LE branchement",
        title:`Relie ta Page à ton <span class="g">Instagram</span>`,
        msg:`Sur ton téléphone, dans l'appli Instagram. Avance avec les flèches 👇`,
        slider:[
@@ -412,14 +411,19 @@ const FORMATION = {
        ],
        say:`Si Instagram te demande de te connecter à Facebook, dis oui — cette fois on ne l'ignore pas 😉`,
        hint:`Pour vérifier que ça a marché : sur ta Page Facebook, dans « éléments connectés », ton compte Instagram apparaît. Le courant passe !`,
-       btns:[{label:"Ma Page est reliée ✓", cls:"green", points:20}]},
+       btns:[{label:"Ma Page est reliée ✓", cls:"green", points:20}]},    ]},
+
+  // ---------- CHAPITRE 9 : Ta clé permanente ----------
+  { id:6, title:"Ta clé permanente", sub:"Le token qui n'expire jamais", emoji:"🔑",
+    ready:true, duree:"~10 min", jalon:"Ta clé fonctionne et n'expire jamais",
+    badge:{emoji:"🗝️", name:"Passe-partout", bonus:90},
+    steps:[
       {type:'story', emoji:"⚠️", wiggle:true, kicker:"À lire AVANT de cliquer",
        title:`Le token ne s'affiche qu'<span class="g">une seule fois</span>`,
        msg:`Meta te le montrera pendant quelques secondes, puis plus jamais. Il n'existe aucun moyen de le récupérer ensuite — même Meta ne peut pas te le remontrer.`,
        say:`Ouvre d'abord un endroit où le coller : un bloc-notes, un carnet, ton gestionnaire de mots de passe.`,
        hint:`Si tu fermes la fenêtre sans copier : pas de panique, tu peux en générer un nouveau. Mais autant le faire bien du premier coup 😉`,
-       btns:[{label:"J'ai préparé où le coller ✓", cls:"primary"}]},
-      {type:'action', emoji:"🔑", kicker:"Guichet 6 · 🔑 clé 2/2",
+       btns:[{label:"J'ai préparé où le coller ✓", cls:"primary"}]},      {type:'action', emoji:"🔑", kicker:"Guichet 6 · 🔑 clé 2/2",
        title:`Génère le <span class="g">token permanent</span>`,
        msg:`La dernière clé — et la plus importante. Avance avec les flèches 👇`,
        slider:[
@@ -439,8 +443,7 @@ const FORMATION = {
        ],
        say:`Prépare un endroit où le coller AVANT de cliquer — tu n'auras qu'une seule chance !`,
        hint:`⚠️ Le token ne s'affiche qu'UNE FOIS. Impossible de le récupérer après. · 🔒 C'est la clé de ta maison : ne le colle jamais dans un message, un mail ou un site.`,
-       btns:[{label:"Token généré et sauvegardé ✓", cls:"green", points:20}]},
-      {type:'action', emoji:"🏆", kicker:"Le test de la victoire",
+       btns:[{label:"Token généré et sauvegardé ✓", cls:"green", points:20}]},      {type:'action', emoji:"🏆", kicker:"Le test de la victoire",
        title:`<span class="g">Teste</span> tes clés`,
        msg:`Rien à installer : Meta a un outil en ligne. Va sur <b>developers.facebook.com/tools/debug/accesstoken</b> 👇`,
        slider:[
@@ -449,17 +452,17 @@ const FORMATION = {
        ],
        say:`Si tu vois « Jamais » et tes 5 autorisations : tu as réussi le plus dur. Chapeau !`,
        hint:`Ce qu'il faut vérifier : « Application » = ton app · « Expire le » = ⚠️ JAMAIS · les 5 autorisations listées. Si l'expiration affiche une date, refais un token en choisissant « Jamais ».`,
-       btns:[{label:"Ça affiche mon compte ✓", cls:"green", points:20}]},
-      {type:'story', emoji:"🎉", kicker:"Énorme",
+       btns:[{label:"Ça affiche mon compte ✓", cls:"green", points:20}]},      {type:'story', emoji:"🎉", kicker:"Énorme",
        title:`Tu as réussi ce que <span class="g">90 % abandonnent</span>`,
        msg:`Le plus dur est officiellement derrière toi. La suite, c'est de l'assemblage.`,
        say:`Je suis fier de toi. Vraiment.`,
        btns:[{label:"Terminer le chapitre 🏆", cls:"green"}]},
-    ]},
+        ]},
 
-  // ---------- CHAPITRE 4 : L'étagère à images ----------
-  { id:4, title:"L'étagère à images", sub:"Héberger tes visuels, gratuitement", emoji:"📦",
-    ready:true, badge:{emoji:"📚", name:"Rangé·e", bonus:45},
+// ---------- CHAPITRE 7 : L'étagère à images ----------
+  { id:7, title:"L'étagère à images", sub:"Héberger tes visuels, gratuitement", emoji:"📦",
+    ready:true, duree:"~5 min", jalon:"Ton étagère à images est ouverte",
+    badge:{emoji:"📚", name:"Rangé·e", bonus:45},
     steps:[
       {type:'story', emoji:"📦", wiggle:true, kicker:"Chapitre 4 · le plus court",
        title:`Un <span class="g">point de retrait</span> pour tes images`,
@@ -500,9 +503,10 @@ const FORMATION = {
        btns:[{label:"Terminer le chapitre 🏆", cls:"green"}]},
     ]},
 
-  // ---------- CHAPITRE 5 : Ta première publication ----------
-  { id:5, title:"Ta première publication", sub:"Le grand moment 🎉", emoji:"🚀",
-    ready:true, badge:{emoji:"🥇", name:"Première fois", bonus:70},
+  // ---------- CHAPITRE 8 : Ta première publication ----------
+  { id:8, title:"Ta première publication", sub:"Le grand moment 🎉", emoji:"🚀",
+    ready:true, duree:"~10 min", jalon:"Ton premier carrousel est écrit",
+    badge:{emoji:"🥇", name:"Première fois", bonus:70},
     steps:[
       {type:'story', emoji:"🚀", wiggle:true, kicker:"Chapitre 5 · le grand jour",
        title:`Prépare ta <span class="g">première publication</span>`,
@@ -543,9 +547,10 @@ const FORMATION = {
        btns:[{label:"Terminer le chapitre 🏆", cls:"green"}]},
     ]},
 
-  // ---------- CHAPITRE 6 : L'usine cloud ----------
-  { id:6, title:"L'usine qui tourne seule", sub:"Ordinateur éteint, ça publie", emoji:"☁️",
-    ready:true, badge:{emoji:"🏭", name:"Patron·ne d'usine", bonus:75},
+  // ---------- CHAPITRE 9 : L'usine cloud ----------
+  { id:9, title:"L'usine qui tourne seule", sub:"Ordinateur éteint, ça publie", emoji:"☁️",
+    ready:true, duree:"~20 min", jalon:"Ton usine publie sans toi",
+    badge:{emoji:"🏭", name:"Patron·ne d'usine", bonus:75},
     steps:[
       {type:'story', emoji:"☁️", wiggle:true, kicker:"Chapitre 6",
        title:`Ton ordinateur peut <span class="g">dormir</span>`,
@@ -609,9 +614,10 @@ const FORMATION = {
        btns:[{label:"Terminer le chapitre 🏆", cls:"green"}]},
     ]},
 
-  // ---------- CHAPITRE 7 : Faire vivre ton usine ----------
-  { id:7, title:"Faire vivre ton usine", sub:"Créer TON contenu · dépannage", emoji:"⚙️",
-    ready:true, badge:{emoji:"🎓", name:"Diplômé·e", bonus:100},
+  // ---------- CHAPITRE 10 : Faire vivre ton usine ----------
+  { id:10, title:"Faire vivre ton usine", sub:"Créer TON contenu · dépannage", emoji:"⚙️",
+    ready:true, duree:"~10 min", jalon:"Tu es autonome",
+    badge:{emoji:"🎓", name:"Diplômé·e", bonus:100},
     steps:[
       {type:'story', emoji:"⚙️", wiggle:true, kicker:"Dernier chapitre",
        title:`Le quotidien du <span class="g">patron</span>`,
